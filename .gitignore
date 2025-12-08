@@ -1,0 +1,4 @@
+bin/*
+!bin/libui.dylib
+!bin/libui.dll
+!bin/libui.so
