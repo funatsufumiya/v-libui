@@ -2,6 +2,8 @@
 Small [libui examples](https://github.com/andlabs/libui/tree/master/examples) that can be compile with [tiny c compile](https://bellard.org/tcc/)
 Examples are automatically compiled and exposed at [actions](https://github.com/graysuit/libui_examples/actions/runs/1077977361) tab.
 
+![screenshots/basic_controls.png](screenshots/basic_controls.png)
+
 ## Build and Run
 
 ### Windows
