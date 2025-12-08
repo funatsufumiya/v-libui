@@ -12,6 +12,12 @@ V lang libui examples, forked from [libui_examples](https://github.com/funatsufu
 $ git clone https://github.com/funatsufumiya/libui_examples_v ~/.vmodules/libui
 ```
 
+### Run example
+
+```bash
+$ v run ~/.vmodules/libui/examples/minimal/main.v
+```
+
 -------
 
 Original README
