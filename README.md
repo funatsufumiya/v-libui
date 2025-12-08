@@ -12,10 +12,32 @@ V lang libui examples, forked from [libui_examples](https://github.com/funatsufu
 $ git clone https://github.com/funatsufumiya/libui_examples_v ~/.vmodules/libui
 ```
 
-### Run example
+## Build and Run
+
+### Windows
 
 ```bash
-$ v run ~/.vmodules/libui/examples/minimal/main.v
+.\build.bat
+
+# then run each .exe in bin folder
+```
+
+### Mac
+
+```bash
+$ ./build.sh
+
+# run executables, for example:
+$ DYLD_LIBRARY_PATH=bin bin/graph
+```
+
+### Linux
+
+```bash
+$ ./build.sh
+
+# run executables, for example:
+$ LD_LIBRARY_PATH=bin bin/graph
 ```
 
 -------
