@@ -2,10 +2,6 @@ module main
 
 import libui
 
-// fn main() {
-// 	println("hello")
-// }
-
 fn on_closing(w &C.uiWindow, data voidptr) int
 {
 	C.uiQuit()
