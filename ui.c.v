@@ -377,9 +377,9 @@ pub fn ui_window_set_fullscreen(w &C.uiWindow, fullscreen int) {
 	C.uiWindowSetFullscreen(w, fullscreen)
 }
 
-pub fn C.uiWindowOnContentSizeChanged(w &C.uiWindow, f fn (C.uiWindow, voidptr), data voidptr)
+pub fn C.uiWindowOnContentSizeChanged(w &C.uiWindow, f fn (&C.uiWindow, voidptr), data voidptr)
 
-pub fn ui_window_on_content_size_changed(w &C.uiWindow, f fn (C.uiWindow, voidptr), data voidptr) {
+pub fn ui_window_on_content_size_changed(w &C.uiWindow, f fn (&C.uiWindow, voidptr), data voidptr) {
 	C.uiWindowOnContentSizeChanged(w, f, data)
 }
 
@@ -581,9 +581,9 @@ pub fn ui_label_set_text(l &C.uiLabel, text &i8) {
 	C.uiLabelSetText(l, text)
 }
 
-pub fn C.uiNewLabel(text &i8) C.uiLabel
+pub fn C.uiNewLabel(text &i8) &C.uiLabel
 
-pub fn ui_new_label(text &i8) C.uiLabel {
+pub fn ui_new_label(text &i8) &C.uiLabel {
 	return C.uiNewLabel(text)
 }
 
@@ -623,45 +623,45 @@ pub fn ui_tab_set_margined(t C.uiTab, page int, margined int) {
 	C.uiTabSetMargined(t, page, margined)
 }
 
-pub fn C.uiNewTab() C.uiTab
+pub fn C.uiNewTab() &C.uiTab
 
-pub fn ui_new_tab() C.uiTab {
+pub fn ui_new_tab() &C.uiTab {
 	return C.uiNewTab()
 }
 
-pub fn C.uiGroupTitle(g C.uiGroup) &i8
+pub fn C.uiGroupTitle(g &C.uiGroup) &i8
 
-pub fn ui_group_title(g C.uiGroup) &i8 {
+pub fn ui_group_title(g &C.uiGroup) &i8 {
 	return C.uiGroupTitle(g)
 }
 
-pub fn C.uiGroupSetTitle(g C.uiGroup, title &i8)
+pub fn C.uiGroupSetTitle(g &C.uiGroup, title &i8)
 
-pub fn ui_group_set_title(g C.uiGroup, title &i8) {
+pub fn ui_group_set_title(g &C.uiGroup, title &i8) {
 	C.uiGroupSetTitle(g, title)
 }
 
-pub fn C.uiGroupSetChild(g C.uiGroup, c &C.uiControl)
+pub fn C.uiGroupSetChild(g &C.uiGroup, c &C.uiControl)
 
-pub fn ui_group_set_child(g C.uiGroup, c &C.uiControl) {
+pub fn ui_group_set_child(g &C.uiGroup, c &C.uiControl) {
 	C.uiGroupSetChild(g, c)
 }
 
-pub fn C.uiGroupMargined(g C.uiGroup) int
+pub fn C.uiGroupMargined(g &C.uiGroup) int
 
-pub fn ui_group_margined(g C.uiGroup) int {
+pub fn ui_group_margined(g &C.uiGroup) int {
 	return C.uiGroupMargined(g)
 }
 
-pub fn C.uiGroupSetMargined(g C.uiGroup, margined int)
+pub fn C.uiGroupSetMargined(g &C.uiGroup, margined int)
 
-pub fn ui_group_set_margined(g C.uiGroup, margined int) {
+pub fn ui_group_set_margined(g &C.uiGroup, margined int) {
 	C.uiGroupSetMargined(g, margined)
 }
 
-pub fn C.uiNewGroup(title &i8) C.uiGroup
+pub fn C.uiNewGroup(title &i8) &C.uiGroup
 
-pub fn ui_new_group(title &i8) C.uiGroup {
+pub fn ui_new_group(title &i8) &C.uiGroup {
 	return C.uiNewGroup(title)
 }
 
@@ -669,51 +669,51 @@ pub fn ui_new_group(title &i8) C.uiGroup {
 // setting value outside of range will automatically clamp
 // initial value is minimum
 // complaint if min >= max?
-pub fn C.uiSpinboxValue(s C.uiSpinbox) int
+pub fn C.uiSpinboxValue(s &C.uiSpinbox) int
 
-pub fn ui_spinbox_value(s C.uiSpinbox) int {
+pub fn ui_spinbox_value(s &C.uiSpinbox) int {
 	return C.uiSpinboxValue(s)
 }
 
-pub fn C.uiSpinboxSetValue(s C.uiSpinbox, value int)
+pub fn C.uiSpinboxSetValue(s &C.uiSpinbox, value int)
 
-pub fn ui_spinbox_set_value(s C.uiSpinbox, value int) {
+pub fn ui_spinbox_set_value(s &C.uiSpinbox, value int) {
 	C.uiSpinboxSetValue(s, value)
 }
 
-pub fn C.uiSpinboxOnChanged(s C.uiSpinbox, f fn (C.uiSpinbox, voidptr), data voidptr)
+pub fn C.uiSpinboxOnChanged(s &C.uiSpinbox, f fn (&C.uiSpinbox, voidptr), data voidptr)
 
-pub fn ui_spinbox_on_changed(s C.uiSpinbox, f fn (C.uiSpinbox, voidptr), data voidptr) {
+pub fn ui_spinbox_on_changed(s &C.uiSpinbox, f fn (&C.uiSpinbox, voidptr), data voidptr) {
 	C.uiSpinboxOnChanged(s, f, data)
 }
 
-pub fn C.uiNewSpinbox(min int, max int) C.uiSpinbox
+pub fn C.uiNewSpinbox(min int, max int) &C.uiSpinbox
 
-pub fn ui_new_spinbox(min int, max int) C.uiSpinbox {
+pub fn ui_new_spinbox(min int, max int) &C.uiSpinbox {
 	return C.uiNewSpinbox(min, max)
 }
 
-pub fn C.uiSliderValue(s C.uiSlider) int
+pub fn C.uiSliderValue(s &C.uiSlider) int
 
-pub fn ui_slider_value(s C.uiSlider) int {
+pub fn ui_slider_value(s &C.uiSlider) int {
 	return C.uiSliderValue(s)
 }
 
-pub fn C.uiSliderSetValue(s C.uiSlider, value int)
+pub fn C.uiSliderSetValue(s &C.uiSlider, value int)
 
-pub fn ui_slider_set_value(s C.uiSlider, value int) {
+pub fn ui_slider_set_value(s &C.uiSlider, value int) {
 	C.uiSliderSetValue(s, value)
 }
 
-pub fn C.uiSliderOnChanged(s C.uiSlider, f fn (C.uiSlider, voidptr), data voidptr)
+pub fn C.uiSliderOnChanged(s &C.uiSlider, f fn (&C.uiSlider, voidptr), data voidptr)
 
-pub fn ui_slider_on_changed(s C.uiSlider, f fn (C.uiSlider, voidptr), data voidptr) {
+pub fn ui_slider_on_changed(s &C.uiSlider, f fn (&C.uiSlider, voidptr), data voidptr) {
 	C.uiSliderOnChanged(s, f, data)
 }
 
-pub fn C.uiNewSlider(min int, max int) C.uiSlider
+pub fn C.uiNewSlider(min int, max int) &C.uiSlider
 
-pub fn ui_new_slider(min int, max int) C.uiSlider {
+pub fn ui_new_slider(min int, max int) &C.uiSlider {
 	return C.uiNewSlider(min, max)
 }
 
@@ -729,112 +729,112 @@ pub fn ui_progress_bar_set_value(p C.uiProgressBar, n int) {
 	C.uiProgressBarSetValue(p, n)
 }
 
-pub fn C.uiNewProgressBar() C.uiProgressBar
+pub fn C.uiNewProgressBar() &C.uiProgressBar
 
-pub fn ui_new_progress_bar() C.uiProgressBar {
+pub fn ui_new_progress_bar() &C.uiProgressBar {
 	return C.uiNewProgressBar()
 }
 
-pub fn C.uiNewHorizontalSeparator() C.uiSeparator
+pub fn C.uiNewHorizontalSeparator() &C.uiSeparator
 
-pub fn ui_new_horizontal_separator() C.uiSeparator {
+pub fn ui_new_horizontal_separator() &C.uiSeparator {
 	return C.uiNewHorizontalSeparator()
 }
 
-pub fn C.uiNewVerticalSeparator() C.uiSeparator
+pub fn C.uiNewVerticalSeparator() &C.uiSeparator
 
-pub fn ui_new_vertical_separator() C.uiSeparator {
+pub fn ui_new_vertical_separator() &C.uiSeparator {
 	return C.uiNewVerticalSeparator()
 }
 
-pub fn C.uiComboboxAppend(c C.uiCombobox, text &i8)
+pub fn C.uiComboboxAppend(c &C.uiCombobox, text &i8)
 
-pub fn ui_combobox_append(c C.uiCombobox, text &i8) {
+pub fn ui_combobox_append(c &C.uiCombobox, text &i8) {
 	C.uiComboboxAppend(c, text)
 }
 
-pub fn C.uiComboboxSelected(c C.uiCombobox) int
+pub fn C.uiComboboxSelected(c &C.uiCombobox) int
 
-pub fn ui_combobox_selected(c C.uiCombobox) int {
+pub fn ui_combobox_selected(c &C.uiCombobox) int {
 	return C.uiComboboxSelected(c)
 }
 
-pub fn C.uiComboboxSetSelected(c C.uiCombobox, n int)
+pub fn C.uiComboboxSetSelected(c &C.uiCombobox, n int)
 
-pub fn ui_combobox_set_selected(c C.uiCombobox, n int) {
+pub fn ui_combobox_set_selected(c &C.uiCombobox, n int) {
 	C.uiComboboxSetSelected(c, n)
 }
 
-pub fn C.uiComboboxOnSelected(c C.uiCombobox, f fn (C.uiCombobox, voidptr), data voidptr)
+pub fn C.uiComboboxOnSelected(c &C.uiCombobox, f fn (&C.uiCombobox, voidptr), data voidptr)
 
-pub fn ui_combobox_on_selected(c C.uiCombobox, f fn (C.uiCombobox, voidptr), data voidptr) {
+pub fn ui_combobox_on_selected(c &C.uiCombobox, f fn (&C.uiCombobox, voidptr), data voidptr) {
 	C.uiComboboxOnSelected(c, f, data)
 }
 
-pub fn C.uiNewCombobox() C.uiCombobox
+pub fn C.uiNewCombobox() &C.uiCombobox
 
-pub fn ui_new_combobox() C.uiCombobox {
+pub fn ui_new_combobox() &C.uiCombobox {
 	return C.uiNewCombobox()
 }
 
-pub fn C.uiEditableComboboxAppend(c C.uiEditableCombobox, text &i8)
+pub fn C.uiEditableComboboxAppend(c &C.uiEditableCombobox, text &i8)
 
-pub fn ui_editable_combobox_append(c C.uiEditableCombobox, text &i8) {
+pub fn ui_editable_combobox_append(c &C.uiEditableCombobox, text &i8) {
 	C.uiEditableComboboxAppend(c, text)
 }
 
-pub fn C.uiEditableComboboxText(c C.uiEditableCombobox) &i8
+pub fn C.uiEditableComboboxText(c &C.uiEditableCombobox) &i8
 
-pub fn ui_editable_combobox_text(c C.uiEditableCombobox) &i8 {
+pub fn ui_editable_combobox_text(c &C.uiEditableCombobox) &i8 {
 	return C.uiEditableComboboxText(c)
 }
 
-pub fn C.uiEditableComboboxSetText(c C.uiEditableCombobox, text &i8)
+pub fn C.uiEditableComboboxSetText(c &C.uiEditableCombobox, text &i8)
 
-pub fn ui_editable_combobox_set_text(c C.uiEditableCombobox, text &i8) {
+pub fn ui_editable_combobox_set_text(c &C.uiEditableCombobox, text &i8) {
 	C.uiEditableComboboxSetText(c, text)
 }
 
 // TODO what do we call a function that sets the currently selected item and fills the text field with it? editable comboboxes have no consistent concept of selected item
-pub fn C.uiEditableComboboxOnChanged(c C.uiEditableCombobox, f fn (C.uiEditableCombobox, voidptr), data voidptr)
+pub fn C.uiEditableComboboxOnChanged(c &C.uiEditableCombobox, f fn (&C.uiEditableCombobox, voidptr), data voidptr)
 
-pub fn ui_editable_combobox_on_changed(c C.uiEditableCombobox, f fn (C.uiEditableCombobox, voidptr), data voidptr) {
+pub fn ui_editable_combobox_on_changed(c &C.uiEditableCombobox, f fn (&C.uiEditableCombobox, voidptr), data voidptr) {
 	C.uiEditableComboboxOnChanged(c, f, data)
 }
 
-pub fn C.uiNewEditableCombobox() C.uiEditableCombobox
+pub fn C.uiNewEditableCombobox() &C.uiEditableCombobox
 
-pub fn ui_new_editable_combobox() C.uiEditableCombobox {
+pub fn ui_new_editable_combobox() &C.uiEditableCombobox {
 	return C.uiNewEditableCombobox()
 }
 
-pub fn C.uiRadioButtonsAppend(r C.uiRadioButtons, text &i8)
+pub fn C.uiRadioButtonsAppend(r &C.uiRadioButtons, text &i8)
 
-pub fn ui_radio_buttons_append(r C.uiRadioButtons, text &i8) {
+pub fn ui_radio_buttons_append(r &C.uiRadioButtons, text &i8) {
 	C.uiRadioButtonsAppend(r, text)
 }
 
-pub fn C.uiRadioButtonsSelected(r C.uiRadioButtons) int
+pub fn C.uiRadioButtonsSelected(r &C.uiRadioButtons) int
 
-pub fn ui_radio_buttons_selected(r C.uiRadioButtons) int {
+pub fn ui_radio_buttons_selected(r &C.uiRadioButtons) int {
 	return C.uiRadioButtonsSelected(r)
 }
 
-pub fn C.uiRadioButtonsSetSelected(r C.uiRadioButtons, n int)
+pub fn C.uiRadioButtonsSetSelected(r &C.uiRadioButtons, n int)
 
-pub fn ui_radio_buttons_set_selected(r C.uiRadioButtons, n int) {
+pub fn ui_radio_buttons_set_selected(r &C.uiRadioButtons, n int) {
 	C.uiRadioButtonsSetSelected(r, n)
 }
 
-pub fn C.uiRadioButtonsOnSelected(r C.uiRadioButtons, f fn (C.uiRadioButtons, voidptr), data voidptr)
+pub fn C.uiRadioButtonsOnSelected(r &C.uiRadioButtons, f fn (&C.uiRadioButtons, voidptr), data voidptr)
 
-pub fn ui_radio_buttons_on_selected(r C.uiRadioButtons, f fn (C.uiRadioButtons, voidptr), data voidptr) {
+pub fn ui_radio_buttons_on_selected(r &C.uiRadioButtons, f fn (&C.uiRadioButtons, voidptr), data voidptr) {
 	C.uiRadioButtonsOnSelected(r, f, data)
 }
 
-pub fn C.uiNewRadioButtons() C.uiRadioButtons
+pub fn C.uiNewRadioButtons() &C.uiRadioButtons
 
-pub fn ui_new_radio_buttons() C.uiRadioButtons {
+pub fn ui_new_radio_buttons() &C.uiRadioButtons {
 	return C.uiNewRadioButtons()
 }
 
@@ -842,39 +842,39 @@ pub fn ui_new_radio_buttons() C.uiRadioButtons {
 // TODO document that for both sides
 // TODO document time zone conversions or lack thereof
 // TODO for Time: define what values are returned when a part is missing
-pub fn C.uiDateTimePickerTime(d C.uiDateTimePicker, time &C.tm)
+pub fn C.uiDateTimePickerTime(d &C.uiDateTimePicker, time &C.tm)
 
-pub fn ui_date_time_picker_time(d C.uiDateTimePicker, time &C.tm) {
+pub fn ui_date_time_picker_time(d &C.uiDateTimePicker, time &C.tm) {
 	C.uiDateTimePickerTime(d, time)
 }
 
-pub fn C.uiDateTimePickerSetTime(d C.uiDateTimePicker, time &C.tm)
+pub fn C.uiDateTimePickerSetTime(d &C.uiDateTimePicker, time &C.tm)
 
-pub fn ui_date_time_picker_set_time(d C.uiDateTimePicker, time &C.tm) {
+pub fn ui_date_time_picker_set_time(d &C.uiDateTimePicker, time &C.tm) {
 	C.uiDateTimePickerSetTime(d, time)
 }
 
-pub fn C.uiDateTimePickerOnChanged(d C.uiDateTimePicker, f fn (C.uiDateTimePicker, voidptr), data voidptr)
+pub fn C.uiDateTimePickerOnChanged(d &C.uiDateTimePicker, f fn (&C.uiDateTimePicker, voidptr), data voidptr)
 
-pub fn ui_date_time_picker_on_changed(d C.uiDateTimePicker, f fn (C.uiDateTimePicker, voidptr), data voidptr) {
+pub fn ui_date_time_picker_on_changed(d &C.uiDateTimePicker, f fn (&C.uiDateTimePicker, voidptr), data voidptr) {
 	C.uiDateTimePickerOnChanged(d, f, data)
 }
 
-pub fn C.uiNewDateTimePicker() C.uiDateTimePicker
+pub fn C.uiNewDateTimePicker() &C.uiDateTimePicker
 
-pub fn ui_new_date_time_picker() C.uiDateTimePicker {
+pub fn ui_new_date_time_picker() &C.uiDateTimePicker {
 	return C.uiNewDateTimePicker()
 }
 
-pub fn C.uiNewDatePicker() C.uiDateTimePicker
+pub fn C.uiNewDatePicker() &C.uiDateTimePicker
 
-pub fn ui_new_date_picker() C.uiDateTimePicker {
+pub fn ui_new_date_picker() &C.uiDateTimePicker {
 	return C.uiNewDatePicker()
 }
 
-pub fn C.uiNewTimePicker() C.uiDateTimePicker
+pub fn C.uiNewTimePicker() &C.uiDateTimePicker
 
-pub fn ui_new_time_picker() C.uiDateTimePicker {
+pub fn ui_new_time_picker() &C.uiDateTimePicker {
 	return C.uiNewTimePicker()
 }
 
@@ -915,15 +915,15 @@ pub fn ui_multiline_entry_set_read_only(e &C.uiMultilineEntry, readonly int) {
 	C.uiMultilineEntrySetReadOnly(e, readonly)
 }
 
-pub fn C.uiNewMultilineEntry() C.uiMultilineEntry
+pub fn C.uiNewMultilineEntry() &C.uiMultilineEntry
 
-pub fn ui_new_multiline_entry() C.uiMultilineEntry {
+pub fn ui_new_multiline_entry() &C.uiMultilineEntry {
 	return C.uiNewMultilineEntry()
 }
 
-pub fn C.uiNewNonWrappingMultilineEntry() C.uiMultilineEntry
+pub fn C.uiNewNonWrappingMultilineEntry() &C.uiMultilineEntry
 
-pub fn ui_new_non_wrapping_multiline_entry() C.uiMultilineEntry {
+pub fn ui_new_non_wrapping_multiline_entry() &C.uiMultilineEntry {
 	return C.uiNewNonWrappingMultilineEntry()
 }
 
@@ -1064,22 +1064,22 @@ const ui_window_resize_edge_bottom_right = 7 // TODO have one for keyboard resiz
 
 // TODO give a better name
 // TODO document the types of width and height
-pub fn C.uiAreaSetSize(a C.uiArea, width int, height int)
+pub fn C.uiAreaSetSize(a &C.uiArea, width int, height int)
 
-pub fn ui_area_set_size(a C.uiArea, width int, height int) {
+pub fn ui_area_set_size(a &C.uiArea, width int, height int) {
 	C.uiAreaSetSize(a, width, height)
 }
 
 // TODO uiAreaQueueRedraw()
-pub fn C.uiAreaQueueRedrawAll(a C.uiArea)
+pub fn C.uiAreaQueueRedrawAll(a &C.uiArea)
 
-pub fn ui_area_queue_redraw_all(a C.uiArea) {
+pub fn ui_area_queue_redraw_all(a &C.uiArea) {
 	C.uiAreaQueueRedrawAll(a)
 }
 
-pub fn C.uiAreaScrollTo(a C.uiArea, x f64, y f64, width f64, height f64)
+pub fn C.uiAreaScrollTo(a &C.uiArea, x f64, y f64, width f64, height f64)
 
-pub fn ui_area_scroll_to(a C.uiArea, x f64, y f64, width f64, height f64) {
+pub fn ui_area_scroll_to(a &C.uiArea, x f64, y f64, width f64, height f64) {
 	C.uiAreaScrollTo(a, x, y, width, height)
 }
 
@@ -1088,27 +1088,27 @@ pub fn ui_area_scroll_to(a C.uiArea, x f64, y f64, width f64, height f64) {
 // TODO decide which mouse events should be accepted; Down is the only one guaranteed to work right now
 // TODO what happens to events after calling this up to and including the next mouse up?
 // TODO release capture?
-pub fn C.uiAreaBeginUserWindowMove(a C.uiArea)
+pub fn C.uiAreaBeginUserWindowMove(a &C.uiArea)
 
-pub fn ui_area_begin_user_window_move(a C.uiArea) {
+pub fn ui_area_begin_user_window_move(a &C.uiArea) {
 	C.uiAreaBeginUserWindowMove(a)
 }
 
-pub fn C.uiAreaBeginUserWindowResize(a C.uiArea, edge C.uiWindowResizeEdge)
+pub fn C.uiAreaBeginUserWindowResize(a &C.uiArea, edge C.uiWindowResizeEdge)
 
-pub fn ui_area_begin_user_window_resize(a C.uiArea, edge C.uiWindowResizeEdge) {
+pub fn ui_area_begin_user_window_resize(a &C.uiArea, edge C.uiWindowResizeEdge) {
 	C.uiAreaBeginUserWindowResize(a, edge)
 }
 
-pub fn C.uiNewArea(ah C.uiAreaHandler) C.uiArea
+pub fn C.uiNewArea(ah &C.uiAreaHandler) &C.uiArea
 
-pub fn ui_new_area(ah C.uiAreaHandler) C.uiArea {
+pub fn ui_new_area(ah &C.uiAreaHandler) &C.uiArea {
 	return C.uiNewArea(ah)
 }
 
-pub fn C.uiNewScrollingArea(ah C.uiAreaHandler, width int, height int) C.uiArea
+pub fn C.uiNewScrollingArea(ah &C.uiAreaHandler, width int, height int) &C.uiArea
 
-pub fn ui_new_scrolling_area(ah C.uiAreaHandler, width int, height int) C.uiArea {
+pub fn ui_new_scrolling_area(ah &C.uiAreaHandler, width int, height int) &C.uiArea {
 	return C.uiNewScrollingArea(ah, width, height)
 }
 
@@ -1211,80 +1211,80 @@ pub struct UiDrawStrokeParams {
 	dashPhase f64
 }
 
-pub fn C.uiDrawNewPath(fill_mode UiDrawFillMode) C.uiDrawPath
+pub fn C.uiDrawNewPath(fill_mode UiDrawFillMode) &C.uiDrawPath
 
-pub fn ui_draw_new_path(fill_mode UiDrawFillMode) C.uiDrawPath {
+pub fn ui_draw_new_path(fill_mode UiDrawFillMode) &C.uiDrawPath {
 	return C.uiDrawNewPath(fill_mode)
 }
 
-pub fn C.uiDrawFreePath(p C.uiDrawPath)
+pub fn C.uiDrawFreePath(p &C.uiDrawPath)
 
-pub fn ui_draw_free_path(p C.uiDrawPath) {
+pub fn ui_draw_free_path(p &C.uiDrawPath) {
 	C.uiDrawFreePath(p)
 }
 
-pub fn C.uiDrawPathNewFigure(p C.uiDrawPath, x f64, y f64)
+pub fn C.uiDrawPathNewFigure(p &C.uiDrawPath, x f64, y f64)
 
-pub fn ui_draw_path_new_figure(p C.uiDrawPath, x f64, y f64) {
+pub fn ui_draw_path_new_figure(p &C.uiDrawPath, x f64, y f64) {
 	C.uiDrawPathNewFigure(p, x, y)
 }
 
-pub fn C.uiDrawPathNewFigureWithArc(p C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int)
+pub fn C.uiDrawPathNewFigureWithArc(p &C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int)
 
-pub fn ui_draw_path_new_figure_with_arc(p C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int) {
+pub fn ui_draw_path_new_figure_with_arc(p &C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int) {
 	C.uiDrawPathNewFigureWithArc(p, x_center, y_center, radius, start_angle, sweep, negative)
 }
 
-pub fn C.uiDrawPathLineTo(p C.uiDrawPath, x f64, y f64)
+pub fn C.uiDrawPathLineTo(p &C.uiDrawPath, x f64, y f64)
 
-pub fn ui_draw_path_line_to(p C.uiDrawPath, x f64, y f64) {
+pub fn ui_draw_path_line_to(p &C.uiDrawPath, x f64, y f64) {
 	C.uiDrawPathLineTo(p, x, y)
 }
 
 // notes: angles are both relative to 0 and go counterclockwise
 // TODO is the initial line segment on cairo and OS X a proper join?
 // TODO what if sweep < 0?
-pub fn C.uiDrawPathArcTo(p C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int)
+pub fn C.uiDrawPathArcTo(p &C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int)
 
-pub fn ui_draw_path_arc_to(p C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int) {
+pub fn ui_draw_path_arc_to(p &C.uiDrawPath, x_center f64, y_center f64, radius f64, start_angle f64, sweep f64, negative int) {
 	C.uiDrawPathArcTo(p, x_center, y_center, radius, start_angle, sweep, negative)
 }
 
-pub fn C.uiDrawPathBezierTo(p C.uiDrawPath, c1x f64, c1y f64, c2x f64, c2y f64, end_x f64, end_y f64)
+pub fn C.uiDrawPathBezierTo(p &C.uiDrawPath, c1x f64, c1y f64, c2x f64, c2y f64, end_x f64, end_y f64)
 
-pub fn ui_draw_path_bezier_to(p C.uiDrawPath, c1x f64, c1y f64, c2x f64, c2y f64, end_x f64, end_y f64) {
+pub fn ui_draw_path_bezier_to(p &C.uiDrawPath, c1x f64, c1y f64, c2x f64, c2y f64, end_x f64, end_y f64) {
 	C.uiDrawPathBezierTo(p, c1x, c1y, c2x, c2y, end_x, end_y)
 }
 
 // TODO quadratic bezier
-pub fn C.uiDrawPathCloseFigure(p C.uiDrawPath)
+pub fn C.uiDrawPathCloseFigure(p &C.uiDrawPath)
 
-pub fn ui_draw_path_close_figure(p C.uiDrawPath) {
+pub fn ui_draw_path_close_figure(p &C.uiDrawPath) {
 	C.uiDrawPathCloseFigure(p)
 }
 
 // TODO effect of these when a figure is already started
-pub fn C.uiDrawPathAddRectangle(p C.uiDrawPath, x f64, y f64, width f64, height f64)
+pub fn C.uiDrawPathAddRectangle(p &C.uiDrawPath, x f64, y f64, width f64, height f64)
 
-pub fn ui_draw_path_add_rectangle(p C.uiDrawPath, x f64, y f64, width f64, height f64) {
+pub fn ui_draw_path_add_rectangle(p &C.uiDrawPath, x f64, y f64, width f64, height f64) {
 	C.uiDrawPathAddRectangle(p, x, y, width, height)
 }
 
-pub fn C.uiDrawPathEnd(p C.uiDrawPath)
+pub fn C.uiDrawPathEnd(p &C.uiDrawPath)
 
-pub fn ui_draw_path_end(p C.uiDrawPath) {
+pub fn ui_draw_path_end(p &C.uiDrawPath) {
 	C.uiDrawPathEnd(p)
 }
 
-pub fn C.uiDrawStroke(c C.uiDrawContext, path C.uiDrawPath, b C.uiDrawBrush, p C.uiDrawStrokeParams)
+pub fn C.uiDrawStroke(c &C.uiDrawContext, path &C.uiDrawPath, b &C.uiDrawBrush, p &C.uiDrawStrokeParams)
 
-pub fn ui_draw_stroke(c C.uiDrawContext, path C.uiDrawPath, b C.uiDrawBrush, p C.uiDrawStrokeParams) {
+pub fn ui_draw_stroke(c &C.uiDrawContext, path &C.uiDrawPath, b &C.uiDrawBrush, p &C.uiDrawStrokeParams) {
 	C.uiDrawStroke(c, path, b, p)
 }
 
-pub fn C.uiDrawFill(c C.uiDrawContext, path C.uiDrawPath, b C.uiDrawBrush)
+pub fn C.uiDrawFill(c &C.uiDrawContext, path &C.uiDrawPath, b &C.uiDrawBrush)
 
-pub fn ui_draw_fill(c C.uiDrawContext, path C.uiDrawPath, b C.uiDrawBrush) {
+pub fn ui_draw_fill(c &C.uiDrawContext, path &C.uiDrawPath, b &C.uiDrawBrush) {
 	C.uiDrawFill(c, path, b)
 }
 
@@ -1292,88 +1292,88 @@ pub fn ui_draw_fill(c C.uiDrawContext, path C.uiDrawPath, b C.uiDrawBrush) {
 // - rounded rectangles
 // - elliptical arcs
 // - quadratic bezier curves
-pub fn C.uiDrawMatrixSetIdentity(m C.uiDrawMatrix)
+pub fn C.uiDrawMatrixSetIdentity(m &C.uiDrawMatrix)
 
-pub fn ui_draw_matrix_set_identity(m C.uiDrawMatrix) {
+pub fn ui_draw_matrix_set_identity(m &C.uiDrawMatrix) {
 	C.uiDrawMatrixSetIdentity(m)
 }
 
-pub fn C.uiDrawMatrixTranslate(m C.uiDrawMatrix, x f64, y f64)
+pub fn C.uiDrawMatrixTranslate(m &C.uiDrawMatrix, x f64, y f64)
 
-pub fn ui_draw_matrix_translate(m C.uiDrawMatrix, x f64, y f64) {
+pub fn ui_draw_matrix_translate(m &C.uiDrawMatrix, x f64, y f64) {
 	C.uiDrawMatrixTranslate(m, x, y)
 }
 
-pub fn C.uiDrawMatrixScale(m C.uiDrawMatrix, x_center f64, y_center f64, x f64, y f64)
+pub fn C.uiDrawMatrixScale(m &C.uiDrawMatrix, x_center f64, y_center f64, x f64, y f64)
 
-pub fn ui_draw_matrix_scale(m C.uiDrawMatrix, x_center f64, y_center f64, x f64, y f64) {
+pub fn ui_draw_matrix_scale(m &C.uiDrawMatrix, x_center f64, y_center f64, x f64, y f64) {
 	C.uiDrawMatrixScale(m, x_center, y_center, x, y)
 }
 
-pub fn C.uiDrawMatrixRotate(m C.uiDrawMatrix, x f64, y f64, amount f64)
+pub fn C.uiDrawMatrixRotate(m &C.uiDrawMatrix, x f64, y f64, amount f64)
 
-pub fn ui_draw_matrix_rotate(m C.uiDrawMatrix, x f64, y f64, amount f64) {
+pub fn ui_draw_matrix_rotate(m &C.uiDrawMatrix, x f64, y f64, amount f64) {
 	C.uiDrawMatrixRotate(m, x, y, amount)
 }
 
-pub fn C.uiDrawMatrixSkew(m C.uiDrawMatrix, x f64, y f64, xamount f64, yamount f64)
+pub fn C.uiDrawMatrixSkew(m &C.uiDrawMatrix, x f64, y f64, xamount f64, yamount f64)
 
-pub fn ui_draw_matrix_skew(m C.uiDrawMatrix, x f64, y f64, xamount f64, yamount f64) {
+pub fn ui_draw_matrix_skew(m &C.uiDrawMatrix, x f64, y f64, xamount f64, yamount f64) {
 	C.uiDrawMatrixSkew(m, x, y, xamount, yamount)
 }
 
-pub fn C.uiDrawMatrixMultiply(dest C.uiDrawMatrix, src C.uiDrawMatrix)
+pub fn C.uiDrawMatrixMultiply(dest &C.uiDrawMatrix, src &C.uiDrawMatrix)
 
-pub fn ui_draw_matrix_multiply(dest C.uiDrawMatrix, src C.uiDrawMatrix) {
+pub fn ui_draw_matrix_multiply(dest &C.uiDrawMatrix, src &C.uiDrawMatrix) {
 	C.uiDrawMatrixMultiply(dest, src)
 }
 
-pub fn C.uiDrawMatrixInvertible(m C.uiDrawMatrix) int
+pub fn C.uiDrawMatrixInvertible(m &C.uiDrawMatrix) int
 
-pub fn ui_draw_matrix_invertible(m C.uiDrawMatrix) int {
+pub fn ui_draw_matrix_invertible(m &C.uiDrawMatrix) int {
 	return C.uiDrawMatrixInvertible(m)
 }
 
-pub fn C.uiDrawMatrixInvert(m C.uiDrawMatrix) int
+pub fn C.uiDrawMatrixInvert(m &C.uiDrawMatrix) int
 
-pub fn ui_draw_matrix_invert(m C.uiDrawMatrix) int {
+pub fn ui_draw_matrix_invert(m &C.uiDrawMatrix) int {
 	return C.uiDrawMatrixInvert(m)
 }
 
-pub fn C.uiDrawMatrixTransformPoint(m C.uiDrawMatrix, x &f64, y &f64)
+pub fn C.uiDrawMatrixTransformPoint(m &C.uiDrawMatrix, x &f64, y &f64)
 
-pub fn ui_draw_matrix_transform_point(m C.uiDrawMatrix, x &f64, y &f64) {
+pub fn ui_draw_matrix_transform_point(m &C.uiDrawMatrix, x &f64, y &f64) {
 	C.uiDrawMatrixTransformPoint(m, x, y)
 }
 
-pub fn C.uiDrawMatrixTransformSize(m C.uiDrawMatrix, x &f64, y &f64)
+pub fn C.uiDrawMatrixTransformSize(m &C.uiDrawMatrix, x &f64, y &f64)
 
-pub fn ui_draw_matrix_transform_size(m C.uiDrawMatrix, x &f64, y &f64) {
+pub fn ui_draw_matrix_transform_size(m &C.uiDrawMatrix, x &f64, y &f64) {
 	C.uiDrawMatrixTransformSize(m, x, y)
 }
 
-pub fn C.uiDrawTransform(c C.uiDrawContext, m C.uiDrawMatrix)
+pub fn C.uiDrawTransform(c &C.uiDrawContext, m &C.uiDrawMatrix)
 
-pub fn ui_draw_transform(c C.uiDrawContext, m C.uiDrawMatrix) {
+pub fn ui_draw_transform(c &C.uiDrawContext, m &C.uiDrawMatrix) {
 	C.uiDrawTransform(c, m)
 }
 
 // TODO add a uiDrawPathStrokeToFill() or something like that
-pub fn C.uiDrawClip(c C.uiDrawContext, path C.uiDrawPath)
+pub fn C.uiDrawClip(c &C.uiDrawContext, path &C.uiDrawPath)
 
-pub fn ui_draw_clip(c C.uiDrawContext, path C.uiDrawPath) {
+pub fn ui_draw_clip(c &C.uiDrawContext, path &C.uiDrawPath) {
 	C.uiDrawClip(c, path)
 }
 
-pub fn C.uiDrawSave(c C.uiDrawContext)
+pub fn C.uiDrawSave(c &C.uiDrawContext)
 
-pub fn ui_draw_save(c C.uiDrawContext) {
+pub fn ui_draw_save(c &C.uiDrawContext) {
 	C.uiDrawSave(c)
 }
 
-pub fn C.uiDrawRestore(c C.uiDrawContext)
+pub fn C.uiDrawRestore(c &C.uiDrawContext)
 
-pub fn ui_draw_restore(c C.uiDrawContext) {
+pub fn ui_draw_restore(c &C.uiDrawContext) {
 	C.uiDrawRestore(c)
 }
 
@@ -1394,9 +1394,9 @@ pub fn ui_draw_restore(c C.uiDrawContext) {
 // it is an error to call this function on a uiAttribute that has been
 // given to a uiAttributedString. You can call this, however, if you
 // created a uiAttribute that you aren't going to use later.
-pub fn C.uiFreeAttribute(a C.uiAttribute)
+pub fn C.uiFreeAttribute(a &C.uiAttribute)
 
-pub fn ui_free_attribute(a C.uiAttribute) {
+pub fn ui_free_attribute(a &C.uiAttribute) {
 	C.uiFreeAttribute(a)
 }
 
@@ -1419,9 +1419,9 @@ pub fn ui_free_attribute(a C.uiAttribute) {
 
 // uiAttributeGetType() returns the type of a.
 // TODO I don't like this name
-pub fn C.uiAttributeGetType(a C.uiAttribute) UiAttributeType
+pub fn C.uiAttributeGetType(a &C.uiAttribute) UiAttributeType
 
-pub fn ui_attribute_get_type(a C.uiAttribute) UiAttributeType {
+pub fn ui_attribute_get_type(a &C.uiAttribute) UiAttributeType {
 	return C.uiAttributeGetType(a)
 }
 
@@ -1429,34 +1429,34 @@ pub fn ui_attribute_get_type(a C.uiAttribute) UiAttributeType {
 // font family of the text it is applied to. family is copied; you do not
 // need to keep it alive after uiNewFamilyAttribute() returns. Font
 // family names are case-insensitive.
-pub fn C.uiNewFamilyAttribute(family &i8) C.uiAttribute
+pub fn C.uiNewFamilyAttribute(family &i8) &C.uiAttribute
 
-pub fn ui_new_family_attribute(family &i8) C.uiAttribute {
+pub fn ui_new_family_attribute(family &i8) &C.uiAttribute {
 	return C.uiNewFamilyAttribute(family)
 }
 
 // uiAttributeFamily() returns the font family stored in a. The
 // returned string is owned by a. It is an error to call this on a
 // uiAttribute that does not hold a font family.
-pub fn C.uiAttributeFamily(a C.uiAttribute) &i8
+pub fn C.uiAttributeFamily(a &C.uiAttribute) &i8
 
-pub fn ui_attribute_family(a C.uiAttribute) &i8 {
+pub fn ui_attribute_family(a &C.uiAttribute) &i8 {
 	return C.uiAttributeFamily(a)
 }
 
 // uiNewSizeAttribute() creates a new uiAttribute that changes the
 // size of the text it is applied to, in typographical points.
-pub fn C.uiNewSizeAttribute(size f64) C.uiAttribute
+pub fn C.uiNewSizeAttribute(size f64) &C.uiAttribute
 
-pub fn ui_new_size_attribute(size f64) C.uiAttribute {
+pub fn ui_new_size_attribute(size f64) &C.uiAttribute {
 	return C.uiNewSizeAttribute(size)
 }
 
 // uiAttributeSize() returns the font size stored in a. It is an error to
 // call this on a uiAttribute that does not hold a font size.
-pub fn C.uiAttributeSize(a C.uiAttribute) f64
+pub fn C.uiAttributeSize(a &C.uiAttribute) f64
 
-pub fn ui_attribute_size(a C.uiAttribute) f64 {
+pub fn ui_attribute_size(a &C.uiAttribute) f64 {
 	return C.uiAttributeSize(a)
 }
 
@@ -1495,17 +1495,17 @@ const ui_text_weight_maximum = 1000
 // weight of the text it is applied to. It is an error to specify a weight
 // outside the range [uiTextWeightMinimum,
 // uiTextWeightMaximum].
-pub fn C.uiNewWeightAttribute(weight UiTextWeight) C.uiAttribute
+pub fn C.uiNewWeightAttribute(weight UiTextWeight) &C.uiAttribute
 
-pub fn ui_new_weight_attribute(weight UiTextWeight) C.uiAttribute {
+pub fn ui_new_weight_attribute(weight UiTextWeight) &C.uiAttribute {
 	return C.uiNewWeightAttribute(weight)
 }
 
 // uiAttributeWeight() returns the font weight stored in a. It is an error
 // to call this on a uiAttribute that does not hold a font weight.
-pub fn C.uiAttributeWeight(a C.uiAttribute) UiTextWeight
+pub fn C.uiAttributeWeight(a &C.uiAttribute) UiTextWeight
 
-pub fn ui_attribute_weight(a C.uiAttribute) UiTextWeight {
+pub fn ui_attribute_weight(a &C.uiAttribute) UiTextWeight {
 	return C.uiAttributeWeight(a)
 }
 
@@ -1524,18 +1524,18 @@ const ui_text_italic_italic = 2
 // uiNewItalicAttribute() creates a new uiAttribute that changes the
 // italic mode of the text it is applied to. It is an error to specify an
 // italic mode not specified in uiTextItalic.
-pub fn C.uiNewItalicAttribute(italic UiTextItalic) C.uiAttribute
+pub fn C.uiNewItalicAttribute(italic UiTextItalic) &C.uiAttribute
 
-pub fn ui_new_italic_attribute(italic UiTextItalic) C.uiAttribute {
+pub fn ui_new_italic_attribute(italic UiTextItalic) &C.uiAttribute {
 	return C.uiNewItalicAttribute(italic)
 }
 
 // uiAttributeItalic() returns the font italic mode stored in a. It is an
 // error to call this on a uiAttribute that does not hold a font italic
 // mode.
-pub fn C.uiAttributeItalic(a C.uiAttribute) UiTextItalic
+pub fn C.uiAttributeItalic(a &C.uiAttribute) UiTextItalic
 
-pub fn ui_attribute_italic(a C.uiAttribute) UiTextItalic {
+pub fn ui_attribute_italic(a &C.uiAttribute) UiTextItalic {
 	return C.uiAttributeItalic(a)
 }
 
@@ -1565,43 +1565,43 @@ const ui_text_stretch_ultra_expanded = 8
 // uiNewStretchAttribute() creates a new uiAttribute that changes the
 // stretch of the text it is applied to. It is an error to specify a strech
 // not specified in uiTextStretch.
-pub fn C.uiNewStretchAttribute(stretch UiTextStretch) C.uiAttribute
+pub fn C.uiNewStretchAttribute(stretch UiTextStretch) &C.uiAttribute
 
-pub fn ui_new_stretch_attribute(stretch UiTextStretch) C.uiAttribute {
+pub fn ui_new_stretch_attribute(stretch UiTextStretch) &C.uiAttribute {
 	return C.uiNewStretchAttribute(stretch)
 }
 
 // uiAttributeStretch() returns the font stretch stored in a. It is an
 // error to call this on a uiAttribute that does not hold a font stretch.
-pub fn C.uiAttributeStretch(a C.uiAttribute) UiTextStretch
+pub fn C.uiAttributeStretch(a &C.uiAttribute) UiTextStretch
 
-pub fn ui_attribute_stretch(a C.uiAttribute) UiTextStretch {
+pub fn ui_attribute_stretch(a &C.uiAttribute) UiTextStretch {
 	return C.uiAttributeStretch(a)
 }
 
 // uiNewColorAttribute() creates a new uiAttribute that changes the
 // color of the text it is applied to. It is an error to specify an invalid
 // color.
-pub fn C.uiNewColorAttribute(r f64, g f64, b f64, a f64) C.uiAttribute
+pub fn C.uiNewColorAttribute(r f64, g f64, b f64, a f64) &C.uiAttribute
 
-pub fn ui_new_color_attribute(r f64, g f64, b f64, a f64) C.uiAttribute {
+pub fn ui_new_color_attribute(r f64, g f64, b f64, a f64) &C.uiAttribute {
 	return C.uiNewColorAttribute(r, g, b, a)
 }
 
 // uiAttributeColor() returns the text color stored in a. It is an
 // error to call this on a uiAttribute that does not hold a text color.
-pub fn C.uiAttributeColor(a C.uiAttribute, r &f64, g &f64, b &f64, alpha &f64)
+pub fn C.uiAttributeColor(a &C.uiAttribute, r &f64, g &f64, b &f64, alpha &f64)
 
-pub fn ui_attribute_color(a C.uiAttribute, r &f64, g &f64, b &f64, alpha &f64) {
+pub fn ui_attribute_color(a &C.uiAttribute, r &f64, g &f64, b &f64, alpha &f64) {
 	C.uiAttributeColor(a, r, g, b, alpha)
 }
 
 // uiNewBackgroundAttribute() creates a new uiAttribute that
 // changes the background color of the text it is applied to. It is an
 // error to specify an invalid color.
-pub fn C.uiNewBackgroundAttribute(r f64, g f64, b f64, a f64) C.uiAttribute
+pub fn C.uiNewBackgroundAttribute(r f64, g f64, b f64, a f64) &C.uiAttribute
 
-pub fn ui_new_background_attribute(r f64, g f64, b f64, a f64) C.uiAttribute {
+pub fn ui_new_background_attribute(r f64, g f64, b f64, a f64) &C.uiAttribute {
 	return C.uiNewBackgroundAttribute(r, g, b, a)
 }
 
@@ -1618,18 +1618,18 @@ const ui_underline_suggestion = 3 // wavy or dotted underlines used for spelling
 // uiNewUnderlineAttribute() creates a new uiAttribute that changes
 // the type of underline on the text it is applied to. It is an error to
 // specify an underline type not specified in uiUnderline.
-pub fn C.uiNewUnderlineAttribute(u UiUnderline) C.uiAttribute
+pub fn C.uiNewUnderlineAttribute(u UiUnderline) &C.uiAttribute
 
-pub fn ui_new_underline_attribute(u UiUnderline) C.uiAttribute {
+pub fn ui_new_underline_attribute(u UiUnderline) &C.uiAttribute {
 	return C.uiNewUnderlineAttribute(u)
 }
 
 // uiAttributeUnderline() returns the underline type stored in a. It is
 // an error to call this on a uiAttribute that does not hold an underline
 // style.
-pub fn C.uiAttributeUnderline(a C.uiAttribute) UiUnderline
+pub fn C.uiAttributeUnderline(a &C.uiAttribute) UiUnderline
 
-pub fn ui_attribute_underline(a C.uiAttribute) UiUnderline {
+pub fn ui_attribute_underline(a &C.uiAttribute) UiUnderline {
 	return C.uiAttributeUnderline(a)
 }
 
@@ -1660,18 +1660,18 @@ const ui_underline_color_auxiliary = 3 // for instance, the color used by smart 
 // If the specified color type is uiUnderlineColorCustom, it is an
 // error to specify an invalid color value. Otherwise, the color values
 // are ignored and should be specified as zero.
-pub fn C.uiNewUnderlineColorAttribute(u UiUnderlineColor, r f64, g f64, b f64, a f64) C.uiAttribute
+pub fn C.uiNewUnderlineColorAttribute(u UiUnderlineColor, r f64, g f64, b f64, a f64) &C.uiAttribute
 
-pub fn ui_new_underline_color_attribute(u UiUnderlineColor, r f64, g f64, b f64, a f64) C.uiAttribute {
+pub fn ui_new_underline_color_attribute(u UiUnderlineColor, r f64, g f64, b f64, a f64) &C.uiAttribute {
 	return C.uiNewUnderlineColorAttribute(u, r, g, b, a)
 }
 
 // uiAttributeUnderlineColor() returns the underline color stored in
 // a. It is an error to call this on a uiAttribute that does not hold an
 // underline color.
-pub fn C.uiAttributeUnderlineColor(a C.uiAttribute, u C.uiUnderlineColor, r &f64, g &f64, b &f64, alpha &f64)
+pub fn C.uiAttributeUnderlineColor(a &C.uiAttribute, u C.uiUnderlineColor, r &f64, g &f64, b &f64, alpha &f64)
 
-pub fn ui_attribute_underline_color(a C.uiAttribute, u C.uiUnderlineColor, r &f64, g &f64, b &f64, alpha &f64) {
+pub fn ui_attribute_underline_color(a &C.uiAttribute, u C.uiUnderlineColor, r &f64, g &f64, b &f64, alpha &f64) {
 	C.uiAttributeUnderlineColor(a, u, r, g, b, alpha)
 }
 
@@ -1697,30 +1697,30 @@ pub fn ui_attribute_underline_color(a C.uiAttribute, u C.uiUnderlineColor, r &f6
 // invoked by uiOpenTypeFeaturesForEach() for every OpenType
 // feature in otf. Refer to that function's documentation for more
 // details.
-pub type UiOpenTypeFeaturesForEachFunc = fn (C.uiOpenTypeFeatures, i8, i8, i8, i8, u32, voidptr) C.uiForEach
+pub type UiOpenTypeFeaturesForEachFunc = fn (&C.uiOpenTypeFeatures, i8, i8, i8, i8, u32, voidptr) C.uiForEach
 
 // @role uiOpenTypeFeatures constructor
 // uiNewOpenTypeFeatures() returns a new uiOpenTypeFeatures
 // instance, with no tags yet added.
-pub fn C.uiNewOpenTypeFeatures() C.uiOpenTypeFeatures
+pub fn C.uiNewOpenTypeFeatures() &C.uiOpenTypeFeatures
 
-pub fn ui_new_open_type_features() C.uiOpenTypeFeatures {
+pub fn ui_new_open_type_features() &C.uiOpenTypeFeatures {
 	return C.uiNewOpenTypeFeatures()
 }
 
 // @role uiOpenTypeFeatures destructor
 // uiFreeOpenTypeFeatures() frees otf.
-pub fn C.uiFreeOpenTypeFeatures(otf C.uiOpenTypeFeatures)
+pub fn C.uiFreeOpenTypeFeatures(otf &C.uiOpenTypeFeatures)
 
-pub fn ui_free_open_type_features(otf C.uiOpenTypeFeatures) {
+pub fn ui_free_open_type_features(otf &C.uiOpenTypeFeatures) {
 	C.uiFreeOpenTypeFeatures(otf)
 }
 
 // uiOpenTypeFeaturesClone() makes a copy of otf and returns it.
 // Changing one will not affect the other.
-pub fn C.uiOpenTypeFeaturesClone(otf C.uiOpenTypeFeatures) C.uiOpenTypeFeatures
+pub fn C.uiOpenTypeFeaturesClone(otf &C.uiOpenTypeFeatures) &C.uiOpenTypeFeatures
 
-pub fn ui_open_type_features_clone(otf C.uiOpenTypeFeatures) C.uiOpenTypeFeatures {
+pub fn ui_open_type_features_clone(otf &C.uiOpenTypeFeatures) &C.uiOpenTypeFeatures {
 	return C.uiOpenTypeFeaturesClone(otf)
 }
 
@@ -1728,18 +1728,18 @@ pub fn ui_open_type_features_clone(otf C.uiOpenTypeFeatures) C.uiOpenTypeFeature
 // to otf. The feature tag is specified by a, b, c, and d. If there is
 // already a value associated with the specified tag in otf, the old
 // value is removed.
-pub fn C.uiOpenTypeFeaturesAdd(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value u32)
+pub fn C.uiOpenTypeFeaturesAdd(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value u32)
 
-pub fn ui_open_type_features_add(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value u32) {
+pub fn ui_open_type_features_add(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value u32) {
 	C.uiOpenTypeFeaturesAdd(otf, a, b, c, d, value)
 }
 
 // uiOpenTypeFeaturesRemove() removes the given feature tag
 // and value from otf. If the tag is not present in otf,
 // uiOpenTypeFeaturesRemove() does nothing.
-pub fn C.uiOpenTypeFeaturesRemove(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8)
+pub fn C.uiOpenTypeFeaturesRemove(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8)
 
-pub fn ui_open_type_features_remove(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8) {
+pub fn ui_open_type_features_remove(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8) {
 	C.uiOpenTypeFeaturesRemove(otf, a, b, c, d)
 }
 
@@ -1755,27 +1755,27 @@ pub fn ui_open_type_features_remove(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, 
 // for a feature. You should likewise not treat a missing feature as
 // having a value of zero either. Instead, a missing feature should
 // be treated as having some unspecified default value.
-pub fn C.uiOpenTypeFeaturesGet(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value &u32) int
+pub fn C.uiOpenTypeFeaturesGet(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value &u32) int
 
-pub fn ui_open_type_features_get(otf C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value &u32) int {
+pub fn ui_open_type_features_get(otf &C.uiOpenTypeFeatures, a i8, b i8, c i8, d i8, value &u32) int {
 	return C.uiOpenTypeFeaturesGet(otf, a, b, c, d, value)
 }
 
 // uiOpenTypeFeaturesForEach() executes f for every tag-value
 // pair in otf. The enumeration order is unspecified. You cannot
 // modify otf while uiOpenTypeFeaturesForEach() is running.
-pub fn C.uiOpenTypeFeaturesForEach(otf C.uiOpenTypeFeatures, f UiOpenTypeFeaturesForEachFunc, data voidptr)
+pub fn C.uiOpenTypeFeaturesForEach(otf &C.uiOpenTypeFeatures, f UiOpenTypeFeaturesForEachFunc, data voidptr)
 
-pub fn ui_open_type_features_for_each(otf C.uiOpenTypeFeatures, f UiOpenTypeFeaturesForEachFunc, data voidptr) {
+pub fn ui_open_type_features_for_each(otf &C.uiOpenTypeFeatures, f UiOpenTypeFeaturesForEachFunc, data voidptr) {
 	C.uiOpenTypeFeaturesForEach(otf, f, data)
 }
 
 // uiNewFeaturesAttribute() creates a new uiAttribute that changes
 // the font family of the text it is applied to. otf is copied; you may
 // free it after uiNewFeaturesAttribute() returns.
-pub fn C.uiNewFeaturesAttribute(otf C.uiOpenTypeFeatures) C.uiAttribute
+pub fn C.uiNewFeaturesAttribute(otf &C.uiOpenTypeFeatures) C.uiAttribute
 
-pub fn ui_new_features_attribute(otf C.uiOpenTypeFeatures) C.uiAttribute {
+pub fn ui_new_features_attribute(otf &C.uiOpenTypeFeatures) C.uiAttribute {
 	return C.uiNewFeaturesAttribute(otf)
 }
 
@@ -1783,9 +1783,9 @@ pub fn ui_new_features_attribute(otf C.uiOpenTypeFeatures) C.uiAttribute {
 // The returned uiOpenTypeFeatures object is owned by a. It is an
 // error to call this on a uiAttribute that does not hold OpenType
 // features.
-pub fn C.uiAttributeFeatures(a C.uiAttribute) C.uiOpenTypeFeatures
+pub fn C.uiAttributeFeatures(a &C.uiAttribute) &C.uiOpenTypeFeatures
 
-pub fn ui_attribute_features(a C.uiAttribute) C.uiOpenTypeFeatures {
+pub fn ui_attribute_features(a &C.uiAttribute) &C.uiOpenTypeFeatures {
 	return C.uiAttributeFeatures(a)
 }
 
@@ -1901,9 +1901,9 @@ pub fn ui_attributed_string_delete(s C.uiAttributedString, start usize, end usiz
 // of s. Any existing attributes in that byte range of the same type are
 // removed. s takes ownership of a; you should not use it after
 // uiAttributedStringSetAttribute() returns.
-pub fn C.uiAttributedStringSetAttribute(s C.uiAttributedString, a C.uiAttribute, start usize, end usize)
+pub fn C.uiAttributedStringSetAttribute(s C.uiAttributedString, a &C.uiAttribute, start usize, end usize)
 
-pub fn ui_attributed_string_set_attribute(s C.uiAttributedString, a C.uiAttribute, start usize, end usize) {
+pub fn ui_attributed_string_set_attribute(s C.uiAttributedString, a &C.uiAttribute, start usize, end usize) {
 	C.uiAttributedStringSetAttribute(s, a, start, end)
 }
 
@@ -1999,25 +1999,25 @@ pub struct UiDrawTextLayoutParams {
 // 	- uiDrawTextLayoutRangeForSize() (returns what substring would fit in a given size)
 // 	- uiDrawTextLayoutNewWithHeight() (limits amount of string used by the height)
 // - some function to fix up a range (for text editing)
-pub fn C.uiDrawNewTextLayout(params C.uiDrawTextLayoutParams) C.uiDrawTextLayout
+pub fn C.uiDrawNewTextLayout(params &C.uiDrawTextLayoutParams) C.uiDrawTextLayout
 
-pub fn ui_draw_new_text_layout(params C.uiDrawTextLayoutParams) C.uiDrawTextLayout {
+pub fn ui_draw_new_text_layout(params &C.uiDrawTextLayoutParams) C.uiDrawTextLayout {
 	return C.uiDrawNewTextLayout(params)
 }
 
 // @role uiDrawFreeTextLayout destructor
 // uiDrawFreeTextLayout() frees tl. The underlying
 // uiAttributedString is not freed.
-pub fn C.uiDrawFreeTextLayout(tl C.uiDrawTextLayout)
+pub fn C.uiDrawFreeTextLayout(tl &C.uiDrawTextLayout)
 
-pub fn ui_draw_free_text_layout(tl C.uiDrawTextLayout) {
+pub fn ui_draw_free_text_layout(tl &C.uiDrawTextLayout) {
 	C.uiDrawFreeTextLayout(tl)
 }
 
 // uiDrawText() draws tl in c with the top-left point of tl at (x, y).
-pub fn C.uiDrawText(c C.uiDrawContext, tl C.uiDrawTextLayout, x f64, y f64)
+pub fn C.uiDrawText(c &C.uiDrawContext, tl &C.uiDrawTextLayout, x f64, y f64)
 
-pub fn ui_draw_text(c C.uiDrawContext, tl C.uiDrawTextLayout, x f64, y f64) {
+pub fn ui_draw_text(c &C.uiDrawContext, tl &C.uiDrawTextLayout, x f64, y f64) {
 	C.uiDrawText(c, tl, x, y)
 }
 
@@ -2026,9 +2026,9 @@ pub fn ui_draw_text(c C.uiDrawContext, tl C.uiDrawTextLayout, x f64, y f64) {
 // the width passed into uiDrawNewTextLayout() depending on
 // how the text in tl is wrapped. Therefore, you can use this
 // function to get the actual size of the text layout.
-pub fn C.uiDrawTextLayoutExtents(tl C.uiDrawTextLayout, width &f64, height &f64)
+pub fn C.uiDrawTextLayoutExtents(tl &C.uiDrawTextLayout, width &f64, height &f64)
 
-pub fn ui_draw_text_layout_extents(tl C.uiDrawTextLayout, width &f64, height &f64) {
+pub fn ui_draw_text_layout_extents(tl &C.uiDrawTextLayout, width &f64, height &f64) {
 	C.uiDrawTextLayoutExtents(tl, width, height)
 }
 
@@ -2214,33 +2214,33 @@ const ui_at_top = 1
 const ui_at_trailing = 2
 const ui_at_bottom = 3
 
-pub fn C.uiGridAppend(g C.uiGrid, c &C.uiControl, left int, top int, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign)
+pub fn C.uiGridAppend(g &C.uiGrid, c &C.uiControl, left int, top int, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign)
 
-pub fn ui_grid_append(g C.uiGrid, c &C.uiControl, left int, top int, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign) {
+pub fn ui_grid_append(g &C.uiGrid, c &C.uiControl, left int, top int, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign) {
 	C.uiGridAppend(g, c, left, top, xspan, yspan, hexpand, halign, vexpand, valign)
 }
 
-pub fn C.uiGridInsertAt(g C.uiGrid, c &C.uiControl, existing &C.uiControl, at UiAt, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign)
+pub fn C.uiGridInsertAt(g &C.uiGrid, c &C.uiControl, existing &C.uiControl, at UiAt, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign)
 
-pub fn ui_grid_insert_at(g C.uiGrid, c &C.uiControl, existing &C.uiControl, at UiAt, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign) {
+pub fn ui_grid_insert_at(g &C.uiGrid, c &C.uiControl, existing &C.uiControl, at UiAt, xspan int, yspan int, hexpand int, halign UiAlign, vexpand int, valign UiAlign) {
 	C.uiGridInsertAt(g, c, existing, at, xspan, yspan, hexpand, halign, vexpand, valign)
 }
 
-pub fn C.uiGridPadded(g C.uiGrid) int
+pub fn C.uiGridPadded(g &C.uiGrid) int
 
-pub fn ui_grid_padded(g C.uiGrid) int {
+pub fn ui_grid_padded(g &C.uiGrid) int {
 	return C.uiGridPadded(g)
 }
 
-pub fn C.uiGridSetPadded(g C.uiGrid, padded int)
+pub fn C.uiGridSetPadded(g &C.uiGrid, padded int)
 
-pub fn ui_grid_set_padded(g C.uiGrid, padded int) {
+pub fn ui_grid_set_padded(g &C.uiGrid, padded int) {
 	C.uiGridSetPadded(g, padded)
 }
 
-pub fn C.uiNewGrid() C.uiGrid
+pub fn C.uiNewGrid() &C.uiGrid
 
-pub fn ui_new_grid() C.uiGrid {
+pub fn ui_new_grid() &C.uiGrid {
 	return C.uiNewGrid()
 }
 
@@ -2269,9 +2269,9 @@ pub fn ui_new_grid() C.uiGrid {
 // height. This width and height should be the size in points of the
 // image in the device-independent case; typically this is the 1x size.
 // TODO for all uiImage functions: use const void * for const correctness
-pub fn C.uiNewImage(width f64, height f64) C.uiImage
+pub fn C.uiNewImage(width f64, height f64) &C.uiImage
 
-pub fn ui_new_image(width f64, height f64) C.uiImage {
+pub fn ui_new_image(width f64, height f64) &C.uiImage {
 	return C.uiNewImage(width, height)
 }
 
@@ -2380,9 +2380,9 @@ pub fn ui_new_table_value_image(img C.uiImage) C.uiTableValue {
 // about the lifetime of the image (unless you created the image,
 // and thus control its lifetime). It is an error to call this on a
 // uiTableValue that does not hold an image.
-pub fn C.uiTableValueImage(v C.uiTableValue) C.uiImage
+pub fn C.uiTableValueImage(v C.uiTableValue) &C.uiImage
 
-pub fn ui_table_value_image(v C.uiTableValue) C.uiImage {
+pub fn ui_table_value_image(v C.uiTableValue) &C.uiImage {
 	return C.uiTableValueImage(v)
 }
 
