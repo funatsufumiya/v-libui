@@ -156,7 +156,7 @@ pub struct C.uiAttribute {
 const ui_for_each_continue = 0
 const ui_for_each_stop = 1
 
-pub struct UiInitOptions {
+pub struct C.uiInitOptions {
 	size usize
 }
 
@@ -1112,7 +1112,7 @@ pub fn ui_new_scrolling_area(ah &C.uiAreaHandler, width int, height int) &C.uiAr
 	return C.uiNewScrollingArea(ah, width, height)
 }
 
-pub struct UiAreaDrawParams {
+pub struct C.uiAreaDrawParams {
 	context C.uiDrawContext
 	// TODO document that this is only defined for nonscrolling areas
 	areaWidth  f64
@@ -1152,7 +1152,7 @@ enum UiDrawFillMode {
 const ui_draw_fill_mode_winding = 0
 const ui_draw_fill_mode_alternate = 1
 
-pub struct UiDrawMatrix {
+pub struct C.uiDrawMatrix {
 	m11 f64
 	m12 f64
 	m21 f64
@@ -1161,7 +1161,7 @@ pub struct UiDrawMatrix {
 	m32 f64
 }
 
-pub struct UiDrawBrush {
+pub struct C.uiDrawBrush {
 	type UiDrawBrushType
 	// solid brushes
 	r f64
@@ -1190,7 +1190,7 @@ pub struct UiDrawBrush {
 	// TODO transforms
 }
 
-pub struct UiDrawBrushGradientStop {
+pub struct C.uiDrawBrushGradientStop {
 	pos f64
 	r   f64
 	g   f64
@@ -1198,7 +1198,7 @@ pub struct UiDrawBrushGradientStop {
 	a   f64
 }
 
-pub struct UiDrawStrokeParams {
+pub struct C.uiDrawStrokeParams {
 	cap  UiDrawLineCap
 	join UiDrawLineJoin
 	// TODO what if this is 0? on windows there will be a crash with dashing
@@ -1944,7 +1944,7 @@ pub fn ui_attributed_string_grapheme_to_byte_index(s &C.uiAttributedString, pos 
 // one is needed. Currently, this means as the default font of a
 // uiDrawTextLayout and as the data returned by uiFontButton.
 // All the members operate like the respective uiAttributes.
-pub struct UiFontDescriptor {
+pub struct C.uiFontDescriptor {
 	// TODO const-correct this or figure out how to deal with this when getting a value
 	family  &i8
 	size    f64
@@ -1979,7 +1979,7 @@ const ui_draw_text_align_right = 2
 // sufficiently in String. Width determines the width of the bounding
 // box of the text; the height is determined automatically.
 // TODO const-correct this somehow
-pub struct UiDrawTextLayoutParams {
+pub struct C.uiDrawTextLayoutParams {
 	string      C.uiAttributedString
 	defaultFont C.uiFontDescriptor
 	width       f64
@@ -2078,7 +2078,7 @@ const ui_modifier_shift = 1 << 2
 const ui_modifier_super = 1 << 3
 
 // TODO document drag captures
-pub struct UiExtKey {
+pub struct C.uiAreaMouseEvent {
 	// TODO document what these mean for scrolling areas
 	x f64
 	y f64
@@ -2091,6 +2091,8 @@ pub struct UiExtKey {
 	modifiers  UiModifiers
 	held1To64  u64
 }
+
+pub type UiExtKey = int
 
 // empty enum
 const ui_ext_key_escape = 1
@@ -2137,7 +2139,7 @@ const ui_ext_key_ns_ubtract = 36
 const ui_ext_key_nm_ultiply = 37
 const ui_ext_key_nd_ivide = 38
 
-pub struct UiAreaKeyEvent {
+pub struct C.uiAreaKeyEvent {
 	key       i8
 	extKey    UiExtKey
 	modifier  UiModifiers
