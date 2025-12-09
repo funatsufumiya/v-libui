@@ -2,6 +2,8 @@
 
 V libui-ng wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
 
+![screenshots/timer.png](screenshots/timer.png)
+
 Forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
 Note that dynamic libraries are already placed in `bin`. These were prebuilt from [libui-ng/libui-ng](https://github.com/libui-ng/libui-ng).
