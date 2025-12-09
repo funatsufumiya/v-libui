@@ -12,7 +12,7 @@ Note that dynamic libraries are already placed in `bin`. These were prebuilt fro
 $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 ```
 
-## Examples / how to build and run
+## Examples (how to build and run)
 
 > [!NOTE]
 > Currently partial examples only translated into V
@@ -35,7 +35,7 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 $ ./build.sh
 
 # run executables, for example:
-$ DYLD_LIBRARY_PATH=bin bin/graph
+$ DYLD_LIBRARY_PATH=bin bin/timer
 ```
 
 ### Linux
@@ -44,7 +44,7 @@ $ DYLD_LIBRARY_PATH=bin bin/graph
 $ ./build.sh
 
 # run executables, for example:
-$ LD_LIBRARY_PATH=bin bin/graph
+$ LD_LIBRARY_PATH=bin bin/timer
 ```
 
 -------
