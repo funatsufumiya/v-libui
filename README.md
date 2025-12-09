@@ -7,12 +7,10 @@ V libui-ng wrapper and examples
 
 V lang libui examples, forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
-## Usage
-
-### Install as a library (v-libui)
+## Install (as a library)
 
 ```bash
-$ git clone https://github.com/funatsufumiya/libui_examples_v ~/.vmodules/libui
+$ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 ```
 
 ## Build and Run
