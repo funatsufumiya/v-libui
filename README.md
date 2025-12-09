@@ -1,6 +1,6 @@
 # V libui
 
-V libui-ng wrapper and examples. Tested on Win/Mac/Linux.
+V libui-ng wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
 
 Forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
