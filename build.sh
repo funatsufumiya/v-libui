@@ -14,3 +14,4 @@ mkdir bin 1>/dev/null 2>/dev/null
 
 v examples/minimal/main.v -o bin/minimal
 v -enable-globals examples/timer/main.v -o bin/timer
+v -enable-globals examples/calendar/main.v -o bin/calendar

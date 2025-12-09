@@ -2,9 +2,6 @@
 
 V libui-ng wrapper and examples
 
-> [!NOTE]
-> Currently have only [minimal example](./examples/minimal/main.v) and [timer example](./examples/timer/main.v) (Others are not translated into V lang)
-
 V lang libui examples, forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
 ## Install (as a library)
@@ -13,7 +10,14 @@ V lang libui examples, forked from [libui_examples](https://github.com/funatsufu
 $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 ```
 
-## Build and Run
+## Examples / how to build and run
+
+> [!NOTE]
+> Currently partial examples only translated into V
+
+- [minimal](./examples/minimal/main.v)
+- [timer](./examples/timer/main.v)
+- [calendar](./examples/calendar/main.v)
 
 ### Windows
 

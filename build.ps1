@@ -15,3 +15,4 @@ Try { mkdir bin -ErrorAction SilentlyContinue > $null } Catch {}
 
 v "examples/minimal/main.v" -o "bin/minimal.exe"
 v -enable-globals "examples/timer/main.v" -o "bin/timer.exe"
+v -enable-globals "examples/calendar/main.v" -o "bin/calendar.exe"
