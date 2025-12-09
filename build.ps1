@@ -14,5 +14,4 @@ Try { mkdir bin -ErrorAction SilentlyContinue > $null } Catch {}
 # @REM %tcc% -llibui -L%CD% -o "%CD%/bin/minimal.exe" "%CD%/examples/minimal/main.c" 
 
 v "examples/minimal/main.v" -o "bin/minimal.exe"
-
 v -enable-globals "examples/timer/main.v" -o "bin/timer.exe"
