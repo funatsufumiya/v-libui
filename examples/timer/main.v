@@ -25,7 +25,6 @@ fn say_something(b &C.uiButton, data voidptr) {
 
 fn main() {
     mut o := C.uiInitOptions{}
-    unsafe { C.memset(&o, 0, sizeof(C.uiInitOptions)) }
     if C.uiInit(&o) != unsafe { nil } {
         assert(false)
     }

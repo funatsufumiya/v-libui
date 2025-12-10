@@ -80,7 +80,6 @@ fn handler_draw(a &C.uiAreaHandler, area_ &C.uiArea, p &C.uiAreaDrawParams) {
 	graph_size(p.AreaWidth, p.AreaHeight, mut graph_width, mut graph_height)
 
 	// stroke params
-	unsafe { C.memset(sp, 0, sizeof(C.uiDrawStrokeParams)) }
 	sp.Cap = libui.uiDrawLineCapFlat
 	sp.Join = libui.uiDrawLineJoinMiter
 	sp.Thickness = 2
@@ -200,7 +199,6 @@ fn main() {
     _ := time.now()
 
 	mut o := C.uiInitOptions{}
-	unsafe { C.memset(&o, 0, sizeof(C.uiInitOptions)) }
 	err := C.uiInit(&o)
 	if err != unsafe { nil } {
 		println('error initializing ui')

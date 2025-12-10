@@ -11,7 +11,6 @@ fn on_closing(w &C.uiWindow, data voidptr) int
 fn main() {
 	o := C.uiInitOptions{}
 
-	unsafe { C.memset(&o, 0, sizeof (C.uiInitOptions)) }
 	if C.uiInit(&o) != unsafe {nil} {
 		// C.abort();
 		assert(false)

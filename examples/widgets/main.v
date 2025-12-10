@@ -203,7 +203,6 @@ fn should_quit(data voidptr) int {
 // --- Main ---
 fn main() {
 	mut options := C.uiInitOptions{}
-	unsafe { C.memset(&options, 0, sizeof(C.uiInitOptions)) }
 	err := C.uiInit(&options)
 	if err != unsafe { nil } {
 		println('error initializing libui')
