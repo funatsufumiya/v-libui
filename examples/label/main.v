@@ -26,8 +26,7 @@ fn make_attributed_string() {
     mut attr2 := voidptr(0)
     mut otf := voidptr(0)
     attrstr = C.uiNewAttributedString(
-        c"Drawing strings with libui is done with the uiAttributedString and uiDrawTextLayout objects.\n"
-        // c"uiAttributedString lets you have a variety of attributes: "
+        c"Drawing strings with libui is done with the uiAttributedString and uiDrawTextLayout objects.\nuiAttributedString lets you have a variety of attributes: "
     )
 
     attr = C.uiNewFamilyAttribute(c"Courier New")
