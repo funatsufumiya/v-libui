@@ -40,7 +40,7 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 $ ./build.sh
 
 # run executables, for example:
-$ DYLD_LIBRARY_PATH=bin bin/timer
+$ DYLD_LIBRARY_PATH=bin bin/widgets
 ```
 
 ### Linux
@@ -49,7 +49,7 @@ $ DYLD_LIBRARY_PATH=bin bin/timer
 $ ./build.sh
 
 # run executables, for example:
-$ LD_LIBRARY_PATH=bin bin/timer
+$ LD_LIBRARY_PATH=bin bin/widgets
 ```
 
 -------
