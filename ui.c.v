@@ -1185,34 +1185,34 @@ const ui_draw_fill_mode_winding = 0
 const ui_draw_fill_mode_alternate = 1
 
 pub struct C.uiDrawMatrix {
-	m11 f64
-	m12 f64
-	m21 f64
-	m22 f64
-	m31 f64
-	m32 f64
+	M11 f64
+	M12 f64
+	M21 f64
+	M22 f64
+	M31 f64
+	M32 f64
 }
 
 pub struct C.uiDrawBrush {
-	type UiDrawBrushType
+	Type UiDrawBrushType
 	// solid brushes
-	r f64
-	g f64
-	b f64
-	a f64
+	R f64
+	G f64
+	B f64
+	A f64
 	// gradient brushes
-	x0 f64
+	X0 f64
 	// linear: start X, radial: start X
-	y0 f64
+	Y0 f64
 	// linear: start Y, radial: start Y
-	x1 f64
+	X1 f64
 	// linear: end X, radial: outer circle center X
-	y1 f64
+	Y1 f64
 	// linear: end Y, radial: outer circle center Y
-	outerRadius f64
+	OuterRadius f64
 	// radial gradients only
-	stops    C.uiDrawBrushGradientStop
-	numStops usize
+	Stops    C.uiDrawBrushGradientStop
+	NumStops usize
 	// TODO extend mode
 	// cairo: none, repeat, reflect, pad; no individual control
 	// Direct2D: repeat, reflect, pad; no individual control
@@ -1223,24 +1223,24 @@ pub struct C.uiDrawBrush {
 }
 
 pub struct C.uiDrawBrushGradientStop {
-	pos f64
-	r   f64
-	g   f64
-	b   f64
-	a   f64
+	Pos f64
+	R   f64
+	G   f64
+	B   f64
+	A   f64
 }
 
 pub struct C.uiDrawStrokeParams {
-	cap  UiDrawLineCap
-	join UiDrawLineJoin
+	Cap  UiDrawLineCap
+	Join UiDrawLineJoin
 	// TODO what if this is 0? on windows there will be a crash with dashing
-	thickness  f64
-	miterLimit f64
-	dashes     &f64
+	Thickness  f64
+	MiterLimit f64
+	Dashes     &f64
 	// TOOD what if this is 1 on Direct2D?
 	// TODO what if a dash is 0 on Cairo or Quartz?
-	numDashes usize
-	dashPhase f64
+	NumDashes usize
+	DashPhase f64
 }
 
 pub fn C.uiDrawNewPath(fill_mode UiDrawFillMode) &C.uiDrawPath
