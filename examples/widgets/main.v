@@ -107,7 +107,7 @@ fn make_numbers_page() voidptr {
 }
 
 // --- Data Choosers Page ---
-fn on_open_file_clicked(b voidptr, data voidptr) {
+fn on_open_file_clicked(b &C.uiButton, data voidptr) {
 	entry := data
 	filename := C.uiOpenFile(mainwin)
 	if filename == unsafe { nil } {
@@ -118,7 +118,7 @@ fn on_open_file_clicked(b voidptr, data voidptr) {
 	C.uiFreeText(filename)
 }
 
-fn on_save_file_clicked(b voidptr, data voidptr) {
+fn on_save_file_clicked(b &C.uiButton, data voidptr) {
 	entry := data
 	filename := C.uiSaveFile(mainwin)
 	if filename == unsafe { nil } {

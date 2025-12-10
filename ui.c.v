@@ -51,9 +51,11 @@ pub struct C.uiControl {
 
 // WORKAROUNDS
 @[typedef]
-pub type C.uiWindow = int
+pub struct C.uiWindow {}
 @[typedef]
-pub type C.uiBox = int
+pub struct C.uiBox {}
+@[typedef]
+pub struct C.uiButton {}
 
 @[typedef]
 pub struct C.uiInitOptions {
