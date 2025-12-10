@@ -145,10 +145,19 @@ pub struct C.uiColor {
 pub type C.uiAttributeValue = string | f64 | C.uiTextWeight | C.uiTextItalic | C.uiTextStretch | C.uiColor | C.uiUnderline | C.uiOpenTypeFeatures
 
 pub struct C.uiAttribute { 
-	ownedByUser int
-	refcount usize
-	typ C.uiAttributeType
-	value C.uiAttributeValue
+	OwnedByUser int
+	Refcount usize
+	Type C.uiAttributeType
+	Value C.uiAttributeValue
+}
+
+@[typedef]
+pub struct C.uiAreaHandler {
+    Draw         voidptr // void (*Draw)(uiAreaHandler *, uiArea *, uiAreaDrawParams *)
+    MouseEvent   voidptr // void (*MouseEvent)(uiAreaHandler *, uiArea *, uiAreaMouseEvent *)
+    MouseCrossed voidptr // void (*MouseCrossed)(uiAreaHandler *, uiArea *, int)
+    DragBroken   voidptr // void (*DragBroken)(uiAreaHandler *, uiArea *)
+    KeyEvent     voidptr // int (*KeyEvent)(uiAreaHandler *, uiArea *, uiAreaKeyEvent *)
 }
 
 
@@ -161,15 +170,17 @@ pub struct C.uiInitOptions {
 }
 
 pub fn C.asUiControl(v voidptr) &C.uiControl
-// pub fn C.winAsUiControl(v voidptr) &C.uiControl
 
 pub fn uiControl(v voidptr) &C.uiControl {
 	return C.asUiControl(v)
 }
 
-// pub fn winAsUiControl(v &C.uiWindow) &C.uiControl {
-// 	return C.winAsUiControl(v)
+// pub fn C.createUiAreaHandler() C.uiAreaHandler
+
+// pub fn createUiAreaHandler() C.uiAreaHandler {
+// 	return C.createUiAreaHandler()
 // }
+
 
 pub fn C.uiInit(options &C.uiInitOptions) &i8
 
@@ -1113,14 +1124,14 @@ pub fn ui_new_scrolling_area(ah &C.uiAreaHandler, width int, height int) &C.uiAr
 }
 
 pub struct C.uiAreaDrawParams {
-	context C.uiDrawContext
+	Context C.uiDrawContext
 	// TODO document that this is only defined for nonscrolling areas
-	areaWidth  f64
-	areaHeight f64
-	clipX      f64
-	clipY      f64
-	clipWidth  f64
-	clipHeight f64
+	AreaWidth  f64
+	AreaHeight f64
+	ClipX      f64
+	ClipY      f64
+	ClipWidth  f64
+	ClipHeight f64
 }
 
 pub type UiDrawBrushType = u32
@@ -1773,9 +1784,9 @@ pub fn ui_open_type_features_for_each(otf &C.uiOpenTypeFeatures, f UiOpenTypeFea
 // uiNewFeaturesAttribute() creates a new uiAttribute that changes
 // the font family of the text it is applied to. otf is copied; you may
 // free it after uiNewFeaturesAttribute() returns.
-pub fn C.uiNewFeaturesAttribute(otf &C.uiOpenTypeFeatures) C.uiAttribute
+pub fn C.uiNewFeaturesAttribute(otf &C.uiOpenTypeFeatures) &C.uiAttribute
 
-pub fn ui_new_features_attribute(otf &C.uiOpenTypeFeatures) C.uiAttribute {
+pub fn ui_new_features_attribute(otf &C.uiOpenTypeFeatures) &C.uiAttribute {
 	return C.uiNewFeaturesAttribute(otf)
 }
 
@@ -1946,11 +1957,11 @@ pub fn ui_attributed_string_grapheme_to_byte_index(s &C.uiAttributedString, pos 
 // All the members operate like the respective uiAttributes.
 pub struct C.uiFontDescriptor {
 	// TODO const-correct this or figure out how to deal with this when getting a value
-	family  &i8
-	size    f64
-	weight  UiTextWeight
-	italic  UiTextItalic
-	stretch UiTextStretch
+	Family  &i8
+	Size    f64
+	Weight  UiTextWeight
+	Italic  UiTextItalic
+	Stretch UiTextStretch
 }
 
 // uiDrawTextLayout is a concrete representation of a
@@ -1980,10 +1991,10 @@ const ui_draw_text_align_right = 2
 // box of the text; the height is determined automatically.
 // TODO const-correct this somehow
 pub struct C.uiDrawTextLayoutParams {
-	string      C.uiAttributedString
-	defaultFont C.uiFontDescriptor
-	width       f64
-	align       UiDrawTextAlign
+	String      C.uiAttributedString
+	DefaultFont C.uiFontDescriptor
+	Width       f64
+	Align       UiDrawTextAlign
 }
 
 // @role uiDrawTextLayout constructor
