@@ -2,7 +2,7 @@
 
 V [libui-ng](https://github.com/libui-ng/libui-ng) wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
 
-![screenshots/timer.png](screenshots/timer.png)
+![screenshots/basic_controls.png](screenshots/basic_controls.png)
 
 Forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
