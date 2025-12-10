@@ -80,7 +80,7 @@ Examples are automatically compiled and exposed at [actions](https://github.com/
 $ ./build.sh
 
 # run executables, for example:
-$ DYLD_LIBRARY_PATH=bin bin/graph
+$ DYLD_LIBRARY_PATH=bin bin/widgets
 ```
 
 ### Linux
@@ -89,7 +89,7 @@ $ DYLD_LIBRARY_PATH=bin bin/graph
 $ ./build.sh
 
 # run executables, for example:
-$ LD_LIBRARY_PATH=bin bin/graph
+$ LD_LIBRARY_PATH=bin bin/widgets
 ```
 
 ## Screenshots
