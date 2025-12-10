@@ -2,7 +2,7 @@
 
 V [libui-ng](https://github.com/libui-ng/libui-ng) wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
 
-![screenshots/timer.png](screenshots/timer.png)
+![screenshots/basic_controls.png](screenshots/basic_controls.png)
 
 Forked from [libui_examples](https://github.com/funatsufumiya/libui_examples)
 
@@ -22,6 +22,9 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 - [label](./examples/label/main.v)
 - [graph](./examples/graph/main.v)
 - [widgets](./examples/widgets/main.v)
+
+> [!NOTE]
+> Before run the examples, you need to install as a library first. See previous paragraph instructions.
 
 ### Windows
 
