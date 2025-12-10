@@ -3,7 +3,7 @@ module main
 import libui
 
 __global (
-	mainwin voidptr
+	mainwin &C.uiWindow
 	spinbox voidptr
 	slider voidptr
 	pbar voidptr

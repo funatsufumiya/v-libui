@@ -3,11 +3,11 @@ module main
 import libui
 
 __global (
-    mainwin voidptr
-    area voidptr
-    font_button voidptr
-    alignment voidptr
-    attrstr voidptr
+    mainwin &C.uiWindow
+    area &C.uiArea
+    font_button &C.uiFontButton
+    alignment &C.uiCombobox
+    attrstr &C.uiAttributedString
 )
 
 fn append_with_attribute(what string, attr &C.uiAttribute, attr2 &C.uiAttribute) {
@@ -93,8 +93,8 @@ fn handler_draw(a &C.uiAreaHandler, area_ &C.uiArea, p &C.uiAreaDrawParams) {
     mut text_layout := voidptr(0)
     mut default_font := &C.uiFontDescriptor{Family: c''}
     mut params := C.uiDrawTextLayoutParams{
-		String: attrstr,
-		DefaultFont: voidptr(default_font), // WORKAROUND for tcc
+		String: voidptr(attrstr), // WORKAROUND for tcc, to make sure pointer
+		DefaultFont: voidptr(default_font), // WORKAROUND for tcc, to make sure pointer
 		Width: p.AreaWidth,
 		Align: C.uiComboboxSelected(alignment)
 	}
