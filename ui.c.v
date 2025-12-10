@@ -2112,16 +2112,16 @@ const ui_modifier_super = 1 << 3
 // TODO document drag captures
 pub struct C.uiAreaMouseEvent {
 	// TODO document what these mean for scrolling areas
-	x f64
-	y f64
+	X f64
+	Y f64
 	// TODO see draw above
-	areaWidth  f64
-	areaHeight f64
-	down       int
-	up         int
-	count      int
-	modifiers  UiModifiers
-	held1To64  u64
+	AreaWidth  f64
+	AreaHeight f64
+	Down       int
+	Up         int
+	Count      int
+	Modifiers  UiModifiers
+	Held1To64  u64
 }
 
 pub type UiExtKey = int
