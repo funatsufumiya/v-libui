@@ -241,11 +241,11 @@ fn main() {
 
 	// area
 	mut handler := C.uiAreaHandler{
-		Draw:         voidptr(handler_draw)
-		MouseEvent:   voidptr(handler_mouse_event)
-		MouseCrossed: voidptr(handler_mouse_crossed)
-		DragBroken:   voidptr(handler_drag_broken)
-		KeyEvent:     voidptr(handler_key_event)
+		Draw:         handler_draw
+		MouseEvent:   handler_mouse_event
+		MouseCrossed: handler_mouse_crossed
+		DragBroken:   handler_drag_broken
+		KeyEvent:     handler_key_event
 	}
 	histogram = C.uiNewArea(&handler)
 	C.uiBoxAppend(hbox, libui.uiControl(histogram), 1)
