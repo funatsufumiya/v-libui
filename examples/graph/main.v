@@ -4,10 +4,10 @@ import libui
 import time
 
 __global (
-	mainwin       voidptr
-	histogram     voidptr
-	color_button  voidptr
-	datapoints    [10]voidptr
+	mainwin       &C.uiWindow
+	histogram     &C.uiArea
+	color_button  &C.uiColorButton
+	datapoints    [10]&C.uiSpinbox
 	current_point int
 )
 
