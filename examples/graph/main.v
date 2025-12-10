@@ -147,7 +147,7 @@ fn in_point(x f64, y f64, xtest f64, ytest f64) bool {
 		&& y_ <= ytest + point_radius
 }
 
-fn handler_mouse_event(a voidptr, area_ voidptr, e voidptr) {
+fn handler_mouse_event(a &C.uiAreaHandler, area_ voidptr, e voidptr) {
 	event := unsafe { &C.uiAreaMouseEvent(e) }
 	mut graph_width := f64(0)
 	mut graph_height := f64(0)
@@ -168,19 +168,19 @@ fn handler_mouse_event(a voidptr, area_ voidptr, e voidptr) {
 	C.uiAreaQueueRedrawAll(histogram)
 }
 
-fn handler_mouse_crossed(a voidptr, area_ voidptr, left int) {}
+fn handler_mouse_crossed(a &C.uiAreaHandler, area_ voidptr, left int) {}
 
-fn handler_drag_broken(a voidptr, area_ voidptr) {}
+fn handler_drag_broken(a &C.uiAreaHandler, area_ voidptr) {}
 
-fn handler_key_event(a voidptr, area_ voidptr, e voidptr) int {
+fn handler_key_event(a &C.uiAreaHandler, area_ voidptr, e voidptr) int {
 	return 0
 }
 
-fn on_datapoint_changed(s voidptr, data voidptr) {
+fn on_datapoint_changed(s &C.uiSpinbox, data voidptr) {
 	C.uiAreaQueueRedrawAll(histogram)
 }
 
-fn on_color_changed(b voidptr, data voidptr) {
+fn on_color_changed(b &C.uiColorButton, data voidptr) {
 	C.uiAreaQueueRedrawAll(histogram)
 }
 
