@@ -93,6 +93,8 @@ pub struct C.uiMenuItem {}
 
 @[typedef]
 pub struct C.uiAttribute {}
+@[typedef]
+pub struct C.uiArea {}
 
 @[typedef]
 pub struct C.uiInitOptions {

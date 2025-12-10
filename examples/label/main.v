@@ -89,7 +89,7 @@ fn make_attributed_string() {
     C.uiAttributedStringAppendUnattributed(attrstr, c"Use the controls opposite to the text to control properties of the text.")
 }
 
-fn handler_draw(a voidptr, area_ voidptr, p &C.uiAreaDrawParams) {
+fn handler_draw(a &C.uiAreaHandler, area_ &C.uiArea, p &C.uiAreaDrawParams) {
     mut text_layout := voidptr(0)
     mut default_font := &C.uiFontDescriptor{Family: c''}
     mut params := C.uiDrawTextLayoutParams{
@@ -105,10 +105,10 @@ fn handler_draw(a voidptr, area_ voidptr, p &C.uiAreaDrawParams) {
     C.uiFreeFontButtonFont(default_font)
 }
 
-fn handler_mouse_event(a &C.uiAreaHandler, area_ voidptr, e voidptr) {}
-fn handler_mouse_crossed(a &C.uiAreaHandler, area_ voidptr, left int) {}
-fn handler_drag_broken(a &C.uiAreaHandler, area_ voidptr) {}
-fn handler_key_event(a &C.uiAreaHandler, area_ voidptr, e voidptr) int { return 0 }
+fn handler_mouse_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) {}
+fn handler_mouse_crossed(a &C.uiAreaHandler, area_ &C.uiArea, left int) {}
+fn handler_drag_broken(a &C.uiAreaHandler, area_ &C.uiArea) {}
+fn handler_key_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) int { return 0 }
 
 fn on_font_changed(b &C.uiFontButton, data voidptr) {
     C.uiAreaQueueRedrawAll(area)
