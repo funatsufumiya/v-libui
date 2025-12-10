@@ -16,14 +16,12 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 
 ## Examples (how to build and run)
 
-> [!NOTE]
-> Currently partial examples only translated into V
-
 - [minimal](./examples/minimal/main.v)
 - [timer](./examples/timer/main.v)
 - [calendar](./examples/calendar/main.v)
 - [label](./examples/label/main.v)
 - [graph](./examples/graph/main.v)
+- [widgets](./examples/widgets/main.v)
 
 ### Windows
 
