@@ -33,20 +33,20 @@ module libui
 pub type C.uiForEach = u32
 
 pub struct C.uiControl {
-	signature     u32
-	oSSignature   u32
-	typeSignature u32
-	destroy       fn (&C.uiControl)
-	handle        fn (&C.uiControl) C.uintptr_t
-	parent        fn (&C.uiControl) &C.uiControl
-	setParent     fn (&C.uiControl, &C.uiControl)
-	toplevel      fn (&C.uiControl) int
-	visible       fn (&C.uiControl) int
-	show          fn (&C.uiControl)
-	hide          fn (&C.uiControl)
-	enabled       fn (&C.uiControl) int
-	enable        fn (&C.uiControl)
-	disable       fn (&C.uiControl)
+	Signature     u32
+	OSSignature   u32
+	TypeSignature u32
+	Destroy       fn (&C.uiControl)
+	Handle        fn (&C.uiControl) C.uintptr_t
+	Parent        fn (&C.uiControl) &C.uiControl
+	SetParent     fn (&C.uiControl, &C.uiControl)
+	Toplevel      fn (&C.uiControl) int
+	Visible       fn (&C.uiControl) int
+	Show          fn (&C.uiControl)
+	Hide          fn (&C.uiControl)
+	Enabled       fn (&C.uiControl) int
+	Enable        fn (&C.uiControl)
+	Disable       fn (&C.uiControl)
 }
 
 // WORKAROUNDS
@@ -98,30 +98,49 @@ pub struct C.uiOpenTypeFeatures {
 	cap C.size_t
 };
 
-enum UiAttributeType {
-    family
-    size
-    weight
-    italic
-    stretch
-    color
-    underline
-    features
-}
+// enum C.uiAttributeType {
+type C.uiAttributeType = int
+pub const uiAttributeTypeFamily = 0
+pub const uiAttributeTypeSize = 1
+pub const uiAttributeTypeWeight = 2
+pub const uiAttributeTypeItalic = 3
+pub const uiAttributeTypeStretch = 4
+pub const uiAttributeTypeColor = 5
+pub const uiAttributeTypeBackground = 6
+pub const uiAttributeTypeUnderline = 7
+pub const uiAttributeTypeUnderlineColor = 8
+pub const uiAttributeTypeFeatures = 9
 
-// type C.uiAttributeType = UiAttributeType
+pub type C.uiTextWeight = int
+pub const uiTextWeightMinimum = 0
+pub const uiTextWeightThin = 100
+pub const uiTextWeightUltraLight = 200
+pub const uiTextWeightLight = 300
+pub const uiTextWeightBook = 350
+pub const uiTextWeightNormal = 400
+pub const uiTextWeightMedium = 500
+pub const uiTextWeightSemiBold = 600
+pub const uiTextWeightBold = 700
+pub const uiTextWeightUltraBold = 800
+pub const uiTextWeightHeavy = 900
+pub const uiTextWeightUltraHeavy = 950
+pub const uiTextWeightMaximum = 1000
 
-pub struct C.uiTextWeight {
-    value int
-}
+pub type C.uiTextItalic = int
+pub const uiTextItalicNormal = 0
+pub const uiTextItalicOblique = 1
+pub const uiTextItalicItalic = 2
 
-pub struct C.uiTextItalic {
-    value int
-}
-
-pub struct C.uiTextStretch {
-    value int
-}
+pub type C.uiTextStretch = int
+pub const uiTextStretchUltraCondensed = 0
+pub const uiTextStretchExtraCondensed = 1
+pub const uiTextStretchCondensed = 2
+pub const uiTextStretchSemiCondensed = 3
+pub const uiTextStretchNormal = 4
+pub const uiTextStretchSemiExpanded = 5
+pub const uiTextStretchExpanded = 6
+pub const uiTextStretchExtraExpanded = 7
+pub const uiTextStretchUltraExpanded = 8
 
 pub struct C.uiUnderlineColor {
     r f64
@@ -130,9 +149,11 @@ pub struct C.uiUnderlineColor {
     a f64
 }
 
-pub struct C.uiUnderline {
-    value int
-}
+pub type C.uiUnderline = int
+pub const uiUnderlineNone = 0
+pub const uiUnderlineSingle = 1
+pub const uiUnderlineDouble = 2
+pub const uiUnderlineSuggestion = 3
 
 pub struct C.uiColor {
     r f64
@@ -1414,7 +1435,7 @@ pub fn ui_free_attribute(a &C.uiAttribute) {
 // uiAttributeType holds the possible uiAttribute types that may be
 // returned by uiAttributeGetType(). Refer to the documentation for
 // each type's constructor function for details on each type.
-// type UiAttributeType = u32
+// type C.uiAttributeType = u32
 
 // empty enum
 // const ui_attribute_type_family = 0
@@ -1430,9 +1451,9 @@ pub fn ui_free_attribute(a &C.uiAttribute) {
 
 // uiAttributeGetType() returns the type of a.
 // TODO I don't like this name
-pub fn C.uiAttributeGetType(a &C.uiAttribute) UiAttributeType
+pub fn C.uiAttributeGetType(a &C.uiAttribute) C.uiAttributeType
 
-pub fn ui_attribute_get_type(a &C.uiAttribute) UiAttributeType {
+pub fn ui_attribute_get_type(a &C.uiAttribute) C.uiAttributeType {
 	return C.uiAttributeGetType(a)
 }
 
