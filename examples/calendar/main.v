@@ -4,9 +4,9 @@ import libui
 import time
 
 __global (
-    dtboth voidptr
-    dtdate voidptr
-    dttime voidptr
+    dtboth &C.uiDateTimePicker
+    dtdate &C.uiDateTimePicker
+    dttime &C.uiDateTimePicker
 )
 
 fn time_format(d voidptr) string {
@@ -20,7 +20,7 @@ fn time_format(d voidptr) string {
     return ''
 }
 
-fn on_changed(d voidptr, data voidptr) {
+fn on_changed(d &C.uiDateTimePicker, data voidptr) {
     mut tm := C.tm{}
     C.uiDateTimePickerTime(d, &tm)
     buf := [64]u8{}
@@ -29,7 +29,7 @@ fn on_changed(d voidptr, data voidptr) {
     C.uiLabelSetText(data, &buf[0])
 }
 
-fn on_clicked(b voidptr, data voidptr) {
+fn on_clicked(b &C.uiButton, data voidptr) {
     now := int(data)
     mut t := int(0)
     if now != 0 {
