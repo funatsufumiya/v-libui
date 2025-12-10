@@ -184,7 +184,7 @@ fn on_color_changed(b voidptr, data voidptr) {
 	C.uiAreaQueueRedrawAll(histogram)
 }
 
-fn on_closing(w voidptr, data voidptr) int {
+fn on_closing(w &C.uiWindow, data voidptr) int {
 	C.uiControlDestroy(libui.uiControl(mainwin))
 	C.uiQuit()
 	return 0

@@ -55,6 +55,8 @@ pub struct C.uiWindow {}
 @[typedef]
 pub struct C.uiBox {}
 @[typedef]
+pub struct C.uiFontButton {}
+@[typedef]
 pub struct C.uiButton {}
 @[typedef]
 pub struct C.uiLabel {}

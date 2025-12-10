@@ -110,15 +110,15 @@ fn handler_mouse_crossed(a voidptr, area_ voidptr, left int) {}
 fn handler_drag_broken(a voidptr, area_ voidptr) {}
 fn handler_key_event(a voidptr, area_ voidptr, e voidptr) int { return 0 }
 
-fn on_font_changed(b voidptr, data voidptr) {
+fn on_font_changed(b &C.uiFontButton, data voidptr) {
     C.uiAreaQueueRedrawAll(area)
 }
 
-fn on_combobox_selected(b voidptr, data voidptr) {
+fn on_combobox_selected(b &C.uiCombobox, data voidptr) {
     C.uiAreaQueueRedrawAll(area)
 }
 
-fn on_closing(w voidptr, data voidptr) int {
+fn on_closing(w &C.uiWindow, data voidptr) int {
     C.uiControlDestroy(libui.uiControl(mainwin))
     C.uiQuit()
     return 0

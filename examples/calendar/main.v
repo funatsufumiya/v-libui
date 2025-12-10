@@ -48,7 +48,7 @@ fn on_clicked(b voidptr, data voidptr) {
     }
 }
 
-fn on_closing(w voidptr, data voidptr) int {
+fn on_closing(w &C.uiWindow, data voidptr) int {
     C.uiQuit()
     return 1
 }

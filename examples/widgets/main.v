@@ -190,7 +190,7 @@ fn make_data_choosers_page() voidptr {
 }
 
 // --- Window Events ---
-fn on_closing(w voidptr, data voidptr) int {
+fn on_closing(w &C.uiWindow, data voidptr) int {
 	C.uiQuit()
 	return 1
 }
