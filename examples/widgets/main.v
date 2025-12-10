@@ -4,13 +4,13 @@ import libui
 
 __global (
 	mainwin &C.uiWindow
-	spinbox voidptr
-	slider voidptr
-	pbar voidptr
+	spinbox &C.uiSpinbox
+	slider &C.uiSlider
+	pbar &C.uiProgressBar
 )
 
 // --- Basic Controls Page ---
-fn make_basic_controls_page() voidptr {
+fn make_basic_controls_page() &C.uiControl {
 	vbox := C.uiNewVerticalBox()
 	C.uiBoxSetPadded(vbox, 1)
 
@@ -42,17 +42,17 @@ fn make_basic_controls_page() voidptr {
 }
 
 // --- Numbers and Lists Page ---
-fn on_spinbox_changed(s voidptr, data voidptr) {
+fn on_spinbox_changed(s &C.uiSpinbox, data voidptr) {
 	C.uiSliderSetValue(slider, C.uiSpinboxValue(s))
-	C.uiProgressBarSetValue(pbar, C.uiSpinboxValue(s))
+	C.uiProgressBarSetValue(voidptr(pbar), C.uiSpinboxValue(s)) // WORKAROUND voidptr is guide for tcc
 }
 
-fn on_slider_changed(s voidptr, data voidptr) {
+fn on_slider_changed(s &C.uiSlider, data voidptr) {
 	C.uiSpinboxSetValue(spinbox, C.uiSliderValue(s))
-	C.uiProgressBarSetValue(pbar, C.uiSliderValue(s))
+	C.uiProgressBarSetValue(voidptr(pbar), C.uiSliderValue(s)) // WORKAROUND voidptr is guide for tcc
 }
 
-fn make_numbers_page() voidptr {
+fn make_numbers_page() &C.uiControl {
 	hbox := C.uiNewHorizontalBox()
 	C.uiBoxSetPadded(hbox, 1)
 
@@ -71,10 +71,10 @@ fn make_numbers_page() voidptr {
 	C.uiSliderOnChanged(slider, on_slider_changed, unsafe { nil })
 	C.uiBoxAppend(vbox, libui.uiControl(spinbox), 0)
 	C.uiBoxAppend(vbox, libui.uiControl(slider), 0)
-	C.uiBoxAppend(vbox, libui.uiControl(pbar), 0)
+	C.uiBoxAppend(vbox, libui.uiControl(voidptr(pbar)), 0) // WORKAROUND voidptr is guide for tcc
 
 	ip := C.uiNewProgressBar()
-	C.uiProgressBarSetValue(voidptr(ip), -1) // WORKAROUND: voidptr is for tcc
+	C.uiProgressBarSetValue(voidptr(ip), -1) // WORKAROUND: voidptr is guide for tcc
 	C.uiBoxAppend(vbox, libui.uiControl(ip), 0)
 
 	group2 := C.uiNewGroup(c'Lists')
@@ -129,15 +129,15 @@ fn on_save_file_clicked(b &C.uiButton, data voidptr) {
 	C.uiFreeText(filename)
 }
 
-fn on_msg_box_clicked(b voidptr, data voidptr) {
+fn on_msg_box_clicked(b &C.uiButton, data voidptr) {
 	C.uiMsgBox(mainwin, c'This is a normal message box.', c'More detailed information can be shown here.')
 }
 
-fn on_msg_box_error_clicked(b voidptr, data voidptr) {
+fn on_msg_box_error_clicked(b &C.uiButton, data voidptr) {
 	C.uiMsgBoxError(mainwin, c'This message box describes an error.', c'More detailed information can be shown here.')
 }
 
-fn make_data_choosers_page() voidptr {
+fn make_data_choosers_page() &C.uiControl {
 	hbox := C.uiNewHorizontalBox()
 	C.uiBoxSetPadded(hbox, 1)
 
