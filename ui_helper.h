@@ -5,7 +5,3 @@
 uiControl* asUiControl(void* ptr){
     return (uiControl*) ptr;
 }
-
-// uiAreaHandler createUiAreaHandler() {
-//     return uiAreaHandler{};
-// }

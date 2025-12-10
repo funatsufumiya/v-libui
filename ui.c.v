@@ -215,11 +215,16 @@ pub struct C.uiAttribute {
 
 @[typedef]
 pub struct C.uiAreaHandler {
-    Draw         voidptr // void (*Draw)(uiAreaHandler *, uiArea *, uiAreaDrawParams *)
-    MouseEvent   voidptr // void (*MouseEvent)(uiAreaHandler *, uiArea *, uiAreaMouseEvent *)
-    MouseCrossed voidptr // void (*MouseCrossed)(uiAreaHandler *, uiArea *, int)
-    DragBroken   voidptr // void (*DragBroken)(uiAreaHandler *, uiArea *)
-    KeyEvent     voidptr // int (*KeyEvent)(uiAreaHandler *, uiArea *, uiAreaKeyEvent *)
+    // Draw         voidptr // void (*Draw)(uiAreaHandler *, uiArea *, uiAreaDrawParams *)
+    // MouseEvent   voidptr // void (*MouseEvent)(uiAreaHandler *, uiArea *, uiAreaMouseEvent *)
+    // MouseCrossed voidptr // void (*MouseCrossed)(uiAreaHandler *, uiArea *, int)
+    // DragBroken   voidptr // void (*DragBroken)(uiAreaHandler *, uiArea *)
+    // KeyEvent     voidptr // int (*KeyEvent)(uiAreaHandler *, uiArea *, uiAreaKeyEvent *)
+	Draw fn (a &C.uiAreaHandler, area_ &C.uiArea, p &C.uiAreaDrawParams)
+	MouseEvent fn (a &C.uiAreaHandler, area_ &C.uiArea, e &C.uiAreaMouseEvent)
+	MouseCrossed fn (a &C.uiAreaHandler, area_ &C.uiArea, left int)
+	DragBroken fn (a &C.uiAreaHandler, area_ &C.uiArea)
+	KeyEvent fn (a &C.uiAreaHandler, area_ &C.uiArea, e &C.uiAreaKeyEvent) int
 }
 
 
