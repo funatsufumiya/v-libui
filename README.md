@@ -1,6 +1,6 @@
 # V libui
 
-V libui-ng wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
+V [libui-ng](https://github.com/libui-ng/libui-ng) wrapper and examples. Tested on Win/Mac/Linux (Ubuntu).
 
 ![screenshots/timer.png](screenshots/timer.png)
 
