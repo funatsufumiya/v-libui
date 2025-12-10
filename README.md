@@ -22,6 +22,8 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 - [minimal](./examples/minimal/main.v)
 - [timer](./examples/timer/main.v)
 - [calendar](./examples/calendar/main.v)
+- [label](./examples/label/main.v)
+- [graph](./examples/graph/main.v)
 
 ### Windows
 
