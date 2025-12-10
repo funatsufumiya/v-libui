@@ -12,7 +12,6 @@ fn main() {
 	o := C.uiInitOptions{}
 
 	if C.uiInit(&o) != unsafe {nil} {
-		// C.abort();
 		assert(false)
     }
 
