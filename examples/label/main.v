@@ -105,10 +105,10 @@ fn handler_draw(a &C.uiAreaHandler, area_ &C.uiArea, p &C.uiAreaDrawParams) {
     C.uiFreeFontButtonFont(default_font)
 }
 
-fn handler_mouse_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) {}
+fn handler_mouse_event(a &C.uiAreaHandler, area_ &C.uiArea, e &C.uiAreaMouseEvent) {}
 fn handler_mouse_crossed(a &C.uiAreaHandler, area_ &C.uiArea, left int) {}
 fn handler_drag_broken(a &C.uiAreaHandler, area_ &C.uiArea) {}
-fn handler_key_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) int { return 0 }
+fn handler_key_event(a &C.uiAreaHandler, area_ &C.uiArea, e &C.uiAreaKeyEvent) int { return 0 }
 
 fn on_font_changed(b &C.uiFontButton, data voidptr) {
     C.uiAreaQueueRedrawAll(area)

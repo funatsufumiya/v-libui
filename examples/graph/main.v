@@ -147,8 +147,7 @@ fn in_point(x f64, y f64, xtest f64, ytest f64) bool {
 		&& y_ <= ytest + point_radius
 }
 
-fn handler_mouse_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) {
-	event := unsafe { &C.uiAreaMouseEvent(e) }
+fn handler_mouse_event(a &C.uiAreaHandler, area_ &C.uiArea, event &C.uiAreaMouseEvent) {
 	mut graph_width := f64(0)
 	mut graph_height := f64(0)
 	mut xs := []f64{len: 10}
@@ -172,7 +171,7 @@ fn handler_mouse_crossed(a &C.uiAreaHandler, area_ &C.uiArea, left int) {}
 
 fn handler_drag_broken(a &C.uiAreaHandler, area_ &C.uiArea) {}
 
-fn handler_key_event(a &C.uiAreaHandler, area_ &C.uiArea, e voidptr) int {
+fn handler_key_event(a &C.uiAreaHandler, area_ &C.uiArea, e &C.uiAreaKeyEvent) int {
 	return 0
 }
 
