@@ -19,7 +19,7 @@ fn on_closing(w &C.uiWindow, data voidptr) int {
     return 1
 }
 
-fn say_something(b voidptr, data voidptr) {
+fn say_something(b &C.uiButton, data voidptr) {
     C.uiMultilineEntryAppend(e, c'Saying something\n')
 }
 
