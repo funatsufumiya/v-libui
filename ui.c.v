@@ -1155,7 +1155,8 @@ pub struct C.uiAreaDrawParams {
 	ClipHeight f64
 }
 
-pub type UiDrawBrushType = u32
+// pub type UiDrawBrushType = u32
+// pub type C.uiDrawBrushType = int
 
 enum UiDrawLineCap {
 	ui_draw_brush_type_solid
@@ -1194,7 +1195,7 @@ pub struct C.uiDrawMatrix {
 }
 
 pub struct C.uiDrawBrush {
-	Type UiDrawBrushType
+	Type C.uiDrawBrushType
 	// solid brushes
 	R f64
 	G f64
@@ -1231,8 +1232,8 @@ pub struct C.uiDrawBrushGradientStop {
 }
 
 pub struct C.uiDrawStrokeParams {
-	Cap  UiDrawLineCap
-	Join UiDrawLineJoin
+	Cap  C.uiDrawLineCap
+	Join C.uiDrawLineJoin
 	// TODO what if this is 0? on windows there will be a crash with dashing
 	Thickness  f64
 	MiterLimit f64
@@ -1243,9 +1244,31 @@ pub struct C.uiDrawStrokeParams {
 	DashPhase f64
 }
 
-pub fn C.uiDrawNewPath(fill_mode UiDrawFillMode) &C.uiDrawPath
+type C.uiDrawBrushType = int
+pub const uiDrawBrushTypeSolid = 0
+pub const uiDrawBrushTypeLinearGradient = 1
+pub const uiDrawBrushTypeRadialGradient = 2
+pub const uiDrawBrushTypeImage = 3
 
-pub fn ui_draw_new_path(fill_mode UiDrawFillMode) &C.uiDrawPath {
+type C.uiDrawLineCap = int
+pub const uiDrawLineCapFlat = 0
+pub const uiDrawLineCapRound = 1
+pub const uiDrawLineCapSquare = 2
+
+type C.uiDrawLineJoin = int
+pub const uiDrawLineJoinMiter = 0
+pub const uiDrawLineJoinRound = 1
+pub const uiDrawLineJoinBevel = 2
+
+pub const uiDrawDefaultMiterLimit = 10.0
+
+type C.uiDrawFillMode = int
+pub const uiDrawFillModeWinding = 0
+pub const uiDrawFillModeAlternate = 1
+
+pub fn C.uiDrawNewPath(fill_mode C.uiDrawFillMode) &C.uiDrawPath
+
+pub fn ui_draw_new_path(fill_mode C.uiDrawFillMode) &C.uiDrawPath {
 	return C.uiDrawNewPath(fill_mode)
 }
 
