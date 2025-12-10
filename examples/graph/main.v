@@ -196,6 +196,10 @@ fn should_quit(data voidptr) int {
 }
 
 fn main() {
+    // WORKAROUND: in order to suppress time is not used warning
+	// NOTE: time module is used to include C.time
+    _ := time.now()
+
 	mut o := C.uiInitOptions{}
 	unsafe { C.memset(&o, 0, sizeof(C.uiInitOptions)) }
 	err := C.uiInit(&o)
