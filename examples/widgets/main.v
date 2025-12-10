@@ -74,7 +74,7 @@ fn make_numbers_page() voidptr {
 	C.uiBoxAppend(vbox, libui.uiControl(pbar), 0)
 
 	ip := C.uiNewProgressBar()
-	C.uiProgressBarSetValue(ip, -1)
+	C.uiProgressBarSetValue(voidptr(ip), -1) // WORKAROUND: voidptr is for tcc
 	C.uiBoxAppend(vbox, libui.uiControl(ip), 0)
 
 	group2 := C.uiNewGroup(c'Lists')

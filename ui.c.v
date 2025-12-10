@@ -49,13 +49,46 @@ pub struct C.uiControl {
 	Disable       fn (&C.uiControl)
 }
 
-// WORKAROUNDS
+// WORKAROUNDS: distinct type with no definition in headers
 @[typedef]
 pub struct C.uiWindow {}
 @[typedef]
 pub struct C.uiBox {}
 @[typedef]
 pub struct C.uiButton {}
+@[typedef]
+pub struct C.uiLabel {}
+@[typedef]
+pub struct C.uiEntry {}
+@[typedef]
+pub struct C.uiCheckbox {}
+@[typedef]
+pub struct C.uiRadioButtons {}
+@[typedef]
+pub struct C.uiTab {}
+@[typedef]
+pub struct C.uiGroup {}
+@[typedef]
+pub struct C.uiSpinbox {}
+@[typedef]
+pub struct C.uiSlider {}
+@[typedef]
+pub struct C.uiProgressBar {}
+@[typedef]
+pub struct C.uiSeparator {}
+@[typedef]
+pub struct C.uiCombobox {}
+@[typedef]
+pub struct C.uiEditableCombobox {}
+@[typedef]
+pub struct C.uiDateTimePicker {}
+@[typedef]
+pub struct C.uiMenu {}
+@[typedef]
+pub struct C.uiMenuItem {}
+
+@[typedef]
+pub struct C.uiAttribute {}
 
 @[typedef]
 pub struct C.uiInitOptions {
