@@ -10,7 +10,7 @@ __global (
     attrstr voidptr
 )
 
-fn append_with_attribute(what string, attr voidptr, attr2 voidptr) {
+fn append_with_attribute(what string, attr &C.uiAttribute, attr2 &C.uiAttribute) {
     start := C.uiAttributedStringLen(attrstr)
     end := int(start) + what.len
     C.uiAttributedStringAppendUnattributed(attrstr, what.str)
