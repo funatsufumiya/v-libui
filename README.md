@@ -23,6 +23,9 @@ $ git clone https://github.com/funatsufumiya/v-libui ~/.vmodules/libui
 - [graph](./examples/graph/main.v)
 - [widgets](./examples/widgets/main.v)
 
+> [!NOTE]
+> Before run the examples, you need to install as a library first. See previous paragraph instructions.
+
 ### Windows
 
 ```bash
