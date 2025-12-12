@@ -4,6 +4,8 @@ bin/*
 !bin/libui.so
 *.def
 *.exe
+*.obj
+!/libui.lib
 examples/**/*.dll
 examples/**/*.so
 examples/**/*.dylib
